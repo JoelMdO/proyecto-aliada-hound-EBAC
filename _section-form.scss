@@ -1,0 +1,43 @@
+@use "mixin";
+@use "variables" as *;
+
+.section-form-container {
+  @include mixin.section-container();
+}
+
+.section-form__container-title {
+  @include mixin.section-container-title();
+}
+
+.section-form__form {
+  @include mixin.flex-column();
+  gap: 10px;
+  align-items: center;
+  input {
+    display: block;
+    padding: 10px;
+    border: 1px solid $form-border-color;
+    border-radius: 5px;
+    width: 80vw;
+  }
+}
+
+.section-form__select-form {
+  font-size: 12px;
+  color: $dark-blue-color;
+  border: 1px solid $form-border-color;
+  height: 4.7vh;
+  width: 82vw;
+  border-radius: 5px;
+}
+
+.section-form__select-button {
+  font-size: 12px;
+  background-color: $section-banner__container-1-color;
+  color: $dark-blue-color;
+  font-weight: bold;
+  border: 1px solid $form-border-color;
+  width: 20vw;
+  height: 4.7vh;
+  border-radius: 5px;
+}

@@ -1,0 +1,12 @@
+{
+  "name": "proyecto-aliada-hound",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:sass": "sass --no-source-map main.scss styles.css",
+    "watch:sass": "sass --watch main.scss:styles.css"
+  },
+  "devDependencies": {
+    "sass": "^1.76.0"
+  }
+}

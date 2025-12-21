@@ -1,0 +1,55 @@
+@use "mixin";
+@use "variables" as *;
+
+header {
+  @include mixin.flex-column();
+  background-color: $header-background;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100vw;
+}
+
+.header-logo__container {
+  @include mixin.flex-row-center-space-between();
+  width: 100%;
+  gap: 20px;
+
+  img {
+    margin-right: auto;
+  }
+}
+
+.header-select {
+  font-size: 12px;
+  background-color: $language-background-color;
+  color: $white-color;
+  font-weight: bold;
+  border-color: $dark-blue-color;
+  height: 25px;
+  border-radius: 5px;
+}
+
+.header-phone-1,
+.header-phone-2 {
+  @include mixin.flex-row-center();
+  gap: 10px;
+  font-size: 12px;
+}
+
+.header-nav-container {
+  width: 100%;
+  height: 40px;
+  @include mixin.flex-row();
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px 5px 10px;
+  gap: 15px;
+  background-color: $dark-blue-color;
+
+  a {
+    color: $white-color;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,66 @@
+@use "mixin";
+@use "variables" as *;
+
+.section-panel__form-container {
+  @include mixin.section-container();
+}
+
+.section-panel__form-container-title {
+  @include mixin.section-container-title();
+}
+
+.section-panel__boat-container-general {
+  margin-top: 5dvh;
+  width: 30vw;
+  height: 20dvh;
+  margin-left: 10vw;
+}
+
+.section-panel__cockpit-floor-general {
+  height: 30px;
+  top: 2.8dvh;
+  left: -7.3vw;
+  width: 16vw;
+}
+
+.section-panel__cockpit-roof-general {
+  height: 20px;
+  top: 3dvh;
+  left: -5vw;
+  width: 10vw;
+}
+
+.section-panel__subtitle-guias {
+  margin-left: 10vw;
+  margin-top: 2dvh;
+  font-size: 18px;
+  font-weight: bold;
+  color: $dark-blue-color;
+}
+
+.section-panel__chart-general {
+  @include mixin.flex-column();
+  align-items: center;
+}
+
+.section-panel__bar-1,
+.section-panel__bar-2 {
+  position: relative;
+  height: 4dvh;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px $black-shadow-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-panel__bar-1 {
+  width: 40vw;
+  color: $white-color;
+  background-color: $section-banner__container-2-color;
+}
+.section-panel__bar-2 {
+  width: 55vw;
+  color: $dark-blue-color;
+  background-color: $section-banner__container-3-color;
+}

@@ -1,0 +1,53 @@
+@use "variables" as *;
+
+@mixin flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-row-center-space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin section-container {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  background: linear-gradient(
+    90deg,
+    $form-first-background-gradient,
+    $form-second-background-gradient
+  );
+  height: 8dvh;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+@mixin section-container-title {
+  margin: 0;
+  margin-left: 20px;
+  color: $dark-blue-color;
+  font-size: 24px;
+}
+
+@mixin cockpit-floor-and-roof {
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 4px 0 0 6px $black-shadow-color;
+  transform: rotate(90deg);
+  background-color: $cockpit-color;
+}

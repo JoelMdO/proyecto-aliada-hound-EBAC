@@ -1,0 +1,397 @@
+footer {
+  margin-top: 20px;
+  background-color: #041a30;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #dce0e6;
+  height: 40px;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100vw;
+}
+
+.header-logo__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+.header-logo__container img {
+  margin-right: auto;
+}
+
+.header-select {
+  font-size: 12px;
+  background-color: #6ac6de;
+  color: white;
+  font-weight: bold;
+  border-color: #091e3f;
+  height: 25px;
+  border-radius: 5px;
+}
+
+.header-phone-1,
+.header-phone-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.header-nav-container {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px 5px 10px;
+  gap: 15px;
+  background-color: #091e3f;
+}
+.header-nav-container a {
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.section-form-container {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #a9c4df, #e1f4e2);
+  height: 8dvh;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.section-form__container-title {
+  margin: 0;
+  margin-left: 20px;
+  color: #091e3f;
+  font-size: 24px;
+}
+
+.section-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.section-form__form input {
+  display: block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 80vw;
+}
+
+.section-form__select-form {
+  font-size: 12px;
+  color: #091e3f;
+  border: 1px solid #ccc;
+  height: 4.7vh;
+  width: 82vw;
+  border-radius: 5px;
+}
+
+.section-form__select-button {
+  font-size: 12px;
+  background-color: #6ac6de;
+  color: #091e3f;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  width: 20vw;
+  height: 4.7vh;
+  border-radius: 5px;
+}
+
+.section-panel__form-container {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #a9c4df, #e1f4e2);
+  height: 8dvh;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.section-panel__form-container-title {
+  margin: 0;
+  margin-left: 20px;
+  color: #091e3f;
+  font-size: 24px;
+}
+
+.section-panel__boat-container-general {
+  margin-top: 5dvh;
+  width: 30vw;
+  height: 20dvh;
+  margin-left: 10vw;
+}
+
+.section-panel__cockpit-floor-general {
+  height: 30px;
+  top: 2.8dvh;
+  left: -7.3vw;
+  width: 16vw;
+}
+
+.section-panel__cockpit-roof-general {
+  height: 20px;
+  top: 3dvh;
+  left: -5vw;
+  width: 10vw;
+}
+
+.section-panel__subtitle-guias {
+  margin-left: 10vw;
+  margin-top: 2dvh;
+  font-size: 18px;
+  font-weight: bold;
+  color: #091e3f;
+}
+
+.section-panel__chart-general {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-panel__bar-1,
+.section-panel__bar-2 {
+  position: relative;
+  height: 4dvh;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-panel__bar-1 {
+  width: 40vw;
+  color: white;
+  background-color: #6e6ade;
+}
+
+.section-panel__bar-2 {
+  width: 55vw;
+  color: #091e3f;
+  background-color: #70de6a;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.section-banner__red-line {
+  width: 100%;
+  height: 25px;
+  background-color: red;
+}
+
+.section-banner__background {
+  position: relative;
+  width: 100%;
+  height: 50dvh;
+  background-color: #091e3f;
+}
+
+.section-banner__boat-container,
+.section-banner__boat-container-general {
+  position: relative;
+  background: linear-gradient(135deg, #bb9c69, #ee810d);
+  border-bottom-right-radius: 40px;
+  border: 3px solid;
+  border-top-color: rgba(139, 57, 9, 0.4745098039);
+  border-bottom-color: rgba(139, 57, 9, 0.4745098039);
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  box-shadow: 4px 3px 9px rgba(165, 223, 233, 0.9019607843);
+}
+
+.section-banner__boat-container {
+  top: 5dvh;
+  left: 1vw;
+  width: 50vw;
+  height: 15dvh;
+}
+
+.section-banner__banner-title,
+.section-banner__banner-subtitle {
+  position: absolute;
+  margin: 0;
+  letter-spacing: 5px;
+  color: #281407;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  line-height: 1;
+}
+
+.section-banner__banner-title {
+  top: 1dvh;
+  left: 6vw;
+  font-size: 50px;
+}
+
+.section-banner__banner-subtitle {
+  top: 8dvh;
+  left: 5vw;
+  font-size: 40px;
+}
+
+.section-banner__container-1,
+.section-banner__container-2,
+.section-banner__container-2,
+.section-banner__container-4,
+.section-banner__container-5 {
+  position: absolute;
+  height: 10px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.section-banner__container-1 {
+  top: 3.4dvw;
+  left: 20vw;
+  width: 60px;
+  background-color: #6ac6de;
+}
+
+.section-banner__container-2 {
+  top: 3.4dvw;
+  left: 32vw;
+  width: 60px;
+  background-color: #6e6ade;
+}
+
+.section-banner__container-3 {
+  top: 5.5dvw;
+  left: 33vw;
+  width: 45px;
+  background-color: #70de6a;
+}
+
+.section-banner__container-4 {
+  top: 5.5dvw;
+  left: 36vw;
+  width: 60px;
+  background-color: #de766a;
+}
+
+.section-banner__container-5 {
+  top: 5.5dvw;
+  left: 20vw;
+  width: 70px;
+  background-color: #98a2a4;
+}
+
+.section-banner__cockpit-floor,
+.section-banner__cockpit-roof {
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 4px 0 0 6px rgba(0, 0, 0, 0.4);
+  transform: rotate(90deg);
+  background-color: #824a0a;
+}
+
+.section-banner__cockpit-floor {
+  height: 30px;
+  top: 4dvw;
+  left: -5.9vw;
+  width: 160px;
+}
+
+.section-banner__cockpit-roof {
+  height: 20px;
+  top: 3.8dvw;
+  left: -4.5vw;
+  width: 120px;
+}
+
+.section-banner__mask-container {
+  position: absolute;
+  top: 23dvh;
+  left: 20vw;
+  /* 1. Set the background image */
+  background-image: url("assets/containers.jpg");
+  background-size: cover; /* Optional: ensures image covers the text area */
+  background-repeat: no-repeat; /* Optional: prevents tiling */
+  /* Set text properties */
+  font-size: 15vw; /* Large, responsive text size */
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  /* Hide the actual color of the text */
+  color: transparent;
+  /* 2. Apply the background as the mask source */
+  /* -webkit- is essential for broad browser compatibility for this feature */
+  -webkit-background-clip: text;
+  background-clip: text; /* Standard property */
+}
+
+.section-list__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 50dvh;
+}
+
+.section-list__form-container {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #a9c4df, #e1f4e2);
+  height: 8dvh;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.section-list__form-container-title {
+  margin: 0;
+  margin-left: 20px;
+  color: #091e3f;
+  font-size: 24px;
+}
+
+.section-list__table {
+  margin: 20px auto;
+  width: min(90vw, 1100px);
+  overflow-x: auto;
+  background-color: #f4f4f4;
+  font-size: 14px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  border-collapse: collapse;
+}
+
+.section-list__table-header {
+  background-color: #d0d4c4;
+}
+
+.section-list__table td {
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map */
