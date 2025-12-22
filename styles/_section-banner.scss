@@ -5,48 +5,55 @@ body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100dvh;
+}
+
+.section-banner {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100vw;
+  height: 40dvh;
 }
 
 .section-banner__red-line {
-  width: 100%;
+  width: 100vw;
   height: 25px;
   background-color: $red-color;
 }
 
 .section-banner__background {
   position: relative;
-  width: 100%;
-  height: 50dvh;
+  width: 100vw;
+  height: 40dvh;
   background-color: $dark-blue-color;
 }
 
 .section-banner__boat-container,
 .section-banner__boat-container-general {
-  position: relative;
-  background: linear-gradient(
-    135deg,
-    $boat-fist-background-gradient,
-    $boat-second-background-gradient
-  );
-  border-bottom-right-radius: 40px;
-  border: 3px solid;
-  border-top-color: $boat-border-color;
-  border-bottom-color: $boat-border-color;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  box-shadow: 4px 3px 9px $boat-box-shadow-color;
+  @include mixin.boat-body();
 }
 
 .section-banner__boat-container {
-  top: 5dvh;
+  top: 5%;
   left: 1vw;
-  width: 50vw;
-  height: 15dvh;
+  width: 50%;
+  height: 35%;
+}
+.section-banner__boat-text-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 10%;
+  width: 40%;
+  height: 100%;
 }
 
 .section-banner__banner-title,
 .section-banner__banner-subtitle {
-  position: absolute;
+  display: flex;
   margin: 0;
   letter-spacing: 5px;
   color: $banner-blue-color;
@@ -57,20 +64,17 @@ body {
 }
 
 .section-banner__banner-title {
-  top: 1dvh;
-  left: 6vw;
-  font-size: 50px;
+  font-size: 3.5rem;
 }
 
 .section-banner__banner-subtitle {
-  top: 8dvh;
-  left: 5vw;
-  font-size: 40px;
+  margin-top: 5px;
+  font-size: 4rem;
 }
 
 .section-banner__container-1,
 .section-banner__container-2,
-.section-banner__container-2,
+.section-banner__container-3,
 .section-banner__container-4,
 .section-banner__container-5 {
   position: absolute;
@@ -80,35 +84,35 @@ body {
 }
 
 .section-banner__container-1 {
-  top: 3.4dvw;
-  left: 20vw;
-  width: 60px;
+  top: 18.5%;
+  left: 60%;
+  width: 90px;
   background-color: $section-banner__container-1-color;
 }
 
 .section-banner__container-2 {
-  top: 3.4dvw;
-  left: 32vw;
-  width: 60px;
+  top: 73.4%;
+  left: 53%;
+  width: 90px;
   background-color: $section-banner__container-2-color;
 }
 .section-banner__container-3 {
-  top: 5.5dvw;
-  left: 33vw;
-  width: 45px;
+  top: 55.5%;
+  left: 63%;
+  width: 85px;
   background-color: $section-banner__container-3-color;
 }
 .section-banner__container-4 {
-  top: 5.5dvw;
-  left: 36vw;
-  width: 60px;
+  top: 25.5%;
+  left: 50%;
+  width: 90px;
   background-color: $section-banner__container-4-color;
 }
 
 .section-banner__container-5 {
-  top: 5.5dvw;
-  left: 20vw;
-  width: 70px;
+  top: 49.5%;
+  left: 49%;
+  width: 90px;
   background-color: $section-banner__container-5-color;
 }
 
@@ -119,29 +123,29 @@ body {
 
 .section-banner__cockpit-floor {
   height: 30px;
-  top: 4dvw;
-  left: -5.9vw;
+  top: 35%;
+  left: -7.9%;
   width: 160px;
 }
 
 .section-banner__cockpit-roof {
   height: 20px;
-  top: 3.8dvw;
-  left: -4.5vw;
+  top: 35%;
+  left: -6.5%;
   width: 120px;
 }
 
 .section-banner__mask-container {
   position: absolute;
-  top: 23dvh;
-  left: 20vw;
+  top: 53%;
+  left: 50%;
   /* 1. Set the background image */
-  background-image: url("assets/containers.jpg");
+  background-image: url("/assets/containers.jpg");
   background-size: cover; /* Optional: ensures image covers the text area */
   background-repeat: no-repeat; /* Optional: prevents tiling */
 
   /* Set text properties */
-  font-size: 15vw; /* Large, responsive text size */
+  font-size: 10rem; /* Large, responsive text size */
   font-weight: bold;
   font-family: sans-serif;
   text-align: center;
@@ -153,6 +157,271 @@ body {
 
   /* 2. Apply the background as the mask source */
   /* -webkit- is essential for broad browser compatibility for this feature */
+  white-space: nowrap; // prevent textwrapping
   -webkit-background-clip: text;
   background-clip: text; /* Standard property */
+}
+/*-==============================================*/
+/* Media Queries 
+/*-==============================================*/
+
+@media (max-width: 490px) {
+  .section-banner {
+    height: 30dvh;
+  }
+
+  .section-banner__background {
+    width: 100%;
+    height: 100%;
+  }
+
+  .section-banner__banner-title {
+    margin-left: 5px;
+    font-size: 1.5rem;
+  }
+
+  .section-banner__banner-subtitle {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 0.9rem;
+  }
+
+  .section-banner__container-1 {
+    top: 18.5%;
+    left: 60%;
+    width: 20px;
+  }
+
+  .section-banner__container-2 {
+    top: 73.4%;
+    left: 53%;
+    width: 20px;
+  }
+  .section-banner__container-3 {
+    top: 35%;
+    left: 73%;
+    width: 20px;
+  }
+  .section-banner__container-4 {
+    top: 25.5%;
+    left: 50%;
+    width: 20px;
+  }
+
+  .section-banner__container-5 {
+    top: 49.5%;
+    left: 65%;
+    width: 20px;
+  }
+
+  .section-banner__cockpit-floor {
+    height: 20px;
+    top: 35%;
+    left: -26%;
+    width: 110px;
+  }
+
+  .section-banner__cockpit-roof {
+    height: 10px;
+    top: 35%;
+    left: -12.5%;
+    width: 60px;
+  }
+
+  .section-banner__mask-container {
+    top: 53%;
+    left: 20%;
+    font-size: 4rem; /* Large, responsive text size */
+  }
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .section-banner__banner-title {
+    margin-left: 5px;
+    font-size: 2.5rem;
+  }
+
+  .section-banner__banner-subtitle {
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 1.5rem;
+  }
+
+  .section-banner__container-1 {
+    top: 18.5%;
+    left: 60%;
+    width: 30px;
+  }
+
+  .section-banner__container-2 {
+    top: 73.4%;
+    left: 53%;
+    width: 30px;
+  }
+  .section-banner__container-3 {
+    top: 35%;
+    left: 73%;
+    width: 30px;
+  }
+  .section-banner__container-4 {
+    top: 30.5%;
+    left: 55%;
+    width: 30px;
+  }
+
+  .section-banner__container-5 {
+    top: 49.5%;
+    left: 65%;
+    width: 30px;
+  }
+
+  .section-banner__cockpit-floor {
+    height: 30px;
+    top: 35%;
+    left: -17%;
+    width: 100px;
+  }
+
+  .section-banner__cockpit-roof {
+    height: 10px;
+    top: 35%;
+    left: -9.5%;
+    width: 60px;
+  }
+
+  .section-banner__mask-container {
+    top: 53%;
+    left: 20%;
+    font-size: 5.5rem; /* Large, responsive text size */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-banner__banner-title {
+    margin-left: 5px;
+    font-size: 3.5rem;
+  }
+
+  .section-banner__banner-subtitle {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 2.9rem;
+  }
+
+  .section-banner__container-1 {
+    top: 18.5%;
+    left: 60%;
+    width: 40px;
+  }
+
+  .section-banner__container-2 {
+    top: 73.4%;
+    left: 53%;
+    width: 40px;
+  }
+  .section-banner__container-3 {
+    top: 35%;
+    left: 73%;
+    width: 40px;
+  }
+  .section-banner__container-4 {
+    top: 25.5%;
+    left: 50%;
+    width: 40px;
+  }
+
+  .section-banner__container-5 {
+    top: 49.5%;
+    left: 65%;
+    width: 40px;
+  }
+
+  .section-banner__cockpit-floor {
+    height: 20px;
+    top: 37%;
+    left: -17%;
+    width: 160px;
+  }
+
+  .section-banner__cockpit-roof {
+    height: 10px;
+    top: 35%;
+    left: -8.5%;
+    width: 90px;
+  }
+
+  .section-banner__mask-container {
+    top: 53%;
+    left: 20%;
+    font-size: 6.7rem; /* Large, responsive text size */
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .section-banner__boat-container {
+    top: 5%;
+    left: 1vw;
+    width: 50%;
+    height: 45%;
+  }
+
+  .section-banner__container-1 {
+    top: 18.5%;
+    left: 60%;
+    width: 85px;
+    background-color: $section-banner__container-1-color;
+  }
+
+  .section-banner__container-2 {
+    top: 73.4%;
+    left: 63%;
+    width: 85px;
+    background-color: $section-banner__container-2-color;
+  }
+  .section-banner__container-3 {
+    top: 55.5%;
+    left: 63%;
+    width: 85px;
+    background-color: $section-banner__container-3-color;
+  }
+  .section-banner__container-4 {
+    top: 25.5%;
+    left: 50%;
+    width: 85px;
+    background-color: $section-banner__container-4-color;
+  }
+
+  .section-banner__container-5 {
+    top: 43%;
+    left: 49%;
+    width: 85px;
+    background-color: $section-banner__container-5-color;
+  }
+
+  .section-banner__cockpit-floor,
+  .section-banner__cockpit-roof {
+    @include mixin.cockpit-floor-and-roof();
+  }
+
+  .section-banner__cockpit-floor {
+    height: 30px;
+    top: 35%;
+    left: -7.9%;
+    width: 160px;
+  }
+
+  .section-banner__cockpit-roof {
+    height: 20px;
+    top: 35%;
+    left: -6.5%;
+    width: 120px;
+  }
+
+  .section-banner__mask-container {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    /* Set text properties */
+    font-size: 8rem; /* Large, responsive text size */
+  }
 }

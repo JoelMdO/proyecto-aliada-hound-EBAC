@@ -7,10 +7,24 @@
   align-items: center;
 }
 
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin flex-row-center-space-between {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-row-center-space-evenly {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -26,7 +40,7 @@
 @mixin section-container {
   display: flex;
   position: relative;
-  margin-top: 20px;
+  margin-top: 10px;
   background: linear-gradient(
     90deg,
     $form-first-background-gradient,
@@ -42,6 +56,23 @@
   margin-left: 20px;
   color: $dark-blue-color;
   font-size: 24px;
+}
+
+@mixin boat-body {
+  display: flex;
+  position: absolute;
+  background: linear-gradient(
+    135deg,
+    $boat-fist-background-gradient,
+    $boat-second-background-gradient
+  );
+  border-bottom-right-radius: 40px;
+  border: 3px solid;
+  border-top-color: $boat-border-color;
+  border-bottom-color: $boat-border-color;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  box-shadow: 4px 3px 9px $boat-box-shadow-color;
 }
 
 @mixin cockpit-floor-and-roof {

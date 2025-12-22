@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
   </head>
   <header>
     <div class="header-logo__container">
@@ -55,8 +55,10 @@
         <div class="section-banner__red-line"></div>
         <div class="section-banner__background">
           <div class="section-banner__boat-container">
-            <h2 class="section-banner__banner-title">Tú</h2>
-            <h2 class="section-banner__banner-subtitle">Servicio</h2>
+            <div class="section-banner__boat-text-container">
+              <h2 class="section-banner__banner-title">Tú</h2>
+              <h2 class="section-banner__banner-subtitle">Servicio</h2>
+            </div>
             <div class="section-banner__container-1"></div>
             <div class="section-banner__container-2"></div>
             <div class="section-banner__container-3"></div>
@@ -73,16 +75,21 @@
           <h2 class="section-form__container-title">Registro de Guías</h2>
         </div>
         <form class="section-form__form" action="/">
-          <input type="text" placeholder="Numero de Guía" />
-          <input type="text" placeholder="Origen" />
-          <input type="email" placeholder="Destino" />
-          <input type="password" placeholder="Destinario" />
-          <input type="password" placeholder="Confirmar Contraseña" />
-          <input type="password" placeholder="Confirmar Contraseña" />
+          <input id="numero-de-guia" type="text" placeholder="Numero de Guía" />
+          <input id="origen" type="text" placeholder="Origen" />
+          <input id="destino" type="text" placeholder="Destino" />
+          <input id="destinatario" type="text" placeholder="Destinatario" />
+          <input
+            id="fechaCreacion"
+            type="text"
+            placeholder="Fecha de Creacion"
+            onfocus="(this.type= 'date')"
+          />
           <select
             class="section-form__select-form"
             name="estado"
             id="estado"
+            s
             title="Estado Inicial"
           >
             <option value="">Estado</option>
@@ -91,7 +98,7 @@
             <option value="Pendiente">Pendiente</option>
           </select>
           <button class="section-form__select-button" type="submit">
-            Enviar
+            > Enviar
           </button>
         </form>
       </section>
@@ -100,8 +107,17 @@
           <h2 class="section-panel__form-container-title">Estado General</h2>
         </div>
         <strong class="section-panel__subtitle">Numero total de</strong>
-        <div class="section-panel__boat-container-general">
-          <h2 class="section-panel__subtitle-guias">Guias</h2>
+        <div class="section-panel__container">
+          <div class="section-panel__boat-container">
+            <h2 class="section-panel__subtitle-guias">Guias</h2>
+            <div class="section-panel__container-1"></div>
+            <div class="section-panel__container-2"></div>
+            <div class="section-panel__container-3"></div>
+            <div class="section-panel__container-4"></div>
+            <div class="section-panel__container-5"></div>
+            <div class="section-panel__cockpit-floor"></div>
+            <div class="section-panel__cockpit-roof"></div>
+          </div>
         </div>
         <div class="section-panel__chart-general">
           <div class="section-panel__bar-1">
@@ -122,10 +138,10 @@
               <th>Numero de Guía</th>
               <th>Origen</th>
               <th>Destino</th>
-              <th>Destinario</th>
+              <th>Destinatario</th>
               <th>Estado</th>
             </tr>
-            <tr>
+            <!-- <tr>
               <td>123456789</td>
               <td>Ciudad de México</td>
               <td>Guadalajara</td>
@@ -145,7 +161,7 @@
               <td>Cancún</td>
               <td>Carlos Sánchez</td>
               <td>Pendiente</td>
-            </tr>
+            </tr> -->
           </table>
         </div>
       </section>
@@ -154,5 +170,7 @@
       <p>Hound Express &copy; 2025</p>
       <p>Todos los derechos reservados</p>
     </footer>
+    <script src="/data/guias.js" type="module"></script>
+    <script src="/scripts/script.js" type="module"></script>
   </body>
 </html>

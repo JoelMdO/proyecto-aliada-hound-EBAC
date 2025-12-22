@@ -1,6 +1,14 @@
 @use "mixin";
 @use "variables" as *;
 
+.section-panel {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100vw;
+  height: 50dvh;
+}
+
 .section-panel__form-container {
   @include mixin.section-container();
 }
@@ -9,25 +17,90 @@
   @include mixin.section-container-title();
 }
 
-.section-panel__boat-container-general {
-  margin-top: 5dvh;
-  width: 30vw;
-  height: 20dvh;
-  margin-left: 10vw;
+.section-panel__subtitle {
+  margin-top: 20px;
+  margin-left: 15px;
 }
 
-.section-panel__cockpit-floor-general {
+.section-panel__container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 35%;
+}
+
+.section-panel__boat-container {
+  @include mixin.boat-body();
+}
+
+.section-panel__boat-container {
+  top: 35%;
+  left: 1%;
+  width: 20%;
+  height: 50%;
+}
+
+.section-panel__container-1,
+.section-panel__container-2,
+.section-panel__container-3,
+.section-panel__container-4,
+.section-panel__container-5 {
+  position: absolute;
+  height: 10px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px $black-shadow-color;
+}
+
+.section-panel__container-1 {
+  top: 3.4%;
+  left: 20%;
+  width: 60px;
+  background-color: $section-banner__container-1-color;
+}
+
+.section-panel__container-2 {
+  top: 70.4%;
+  left: 32%;
+  width: 60px;
+  background-color: $section-banner__container-2-color;
+}
+.section-panel__container-3 {
+  top: 54.5%;
+  left: 33%;
+  width: 45px;
+  background-color: $section-banner__container-3-color;
+}
+.section-panel__container-4 {
+  top: 75.5%;
+  left: 60%;
+  width: 60px;
+  background-color: $section-banner__container-4-color;
+}
+
+.section-panel__container-5 {
+  top: 60%;
+  left: 57%;
+  width: 70px;
+  background-color: $section-banner__container-5-color;
+}
+
+.section-panel__cockpit-floor,
+.section-panel__cockpit-roof {
+  @include mixin.cockpit-floor-and-roof();
+}
+
+.section-panel__cockpit-floor {
   height: 30px;
-  top: 2.8dvh;
-  left: -7.3vw;
-  width: 16vw;
+  top: 25px;
+  left: -65px;
+  width: 160px;
 }
 
-.section-panel__cockpit-roof-general {
+.section-panel__cockpit-roof {
   height: 20px;
-  top: 3dvh;
-  left: -5vw;
-  width: 10vw;
+  top: 27px;
+  left: -45px;
+  width: 120px;
 }
 
 .section-panel__subtitle-guias {
@@ -39,28 +112,254 @@
 }
 
 .section-panel__chart-general {
+  margin-top: 25px;
   @include mixin.flex-column();
   align-items: center;
 }
 
 .section-panel__bar-1,
 .section-panel__bar-2 {
-  position: relative;
-  height: 4dvh;
-  border-radius: 5px;
-  box-shadow: 4px 4px 8px $black-shadow-color;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 90%;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px $black-shadow-color;
 }
 
 .section-panel__bar-1 {
-  width: 40vw;
+  width: 40%;
   color: $white-color;
   background-color: $section-banner__container-2-color;
 }
 .section-panel__bar-2 {
-  width: 55vw;
+  width: 55%;
   color: $dark-blue-color;
   background-color: $section-banner__container-3-color;
+}
+
+@media (max-width: 490px) {
+  .section-panel__container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 35%;
+  }
+
+  .section-panel__boat-container {
+    top: 35%;
+    left: 1%;
+    width: 50%;
+    height: 50%;
+  }
+
+  .section-panel__container-1 {
+    top: 3.4%;
+    left: 40%;
+    width: 20px;
+  }
+
+  .section-panel__container-2 {
+    top: 70.4%;
+    left: 32%;
+    width: 20px;
+  }
+  .section-panel__container-3 {
+    top: 54.5%;
+    left: 43%;
+    width: 20px;
+  }
+  .section-panel__container-4 {
+    top: 40.5%;
+    left: 60%;
+    width: 20px;
+  }
+
+  .section-panel__container-5 {
+    top: 60%;
+    left: 67%;
+    width: 20px;
+  }
+
+  .section-panel__cockpit-floor {
+    height: 30px;
+    top: 18px;
+    left: -25px;
+    width: 80px;
+  }
+
+  .section-panel__cockpit-roof {
+    height: 20px;
+    top: 20px;
+    left: -25px;
+    width: 60px;
+  }
+
+  .section-panel__subtitle-guias {
+    margin-left: 10vw;
+    margin-top: 2dvh;
+    font-size: 18px;
+    font-weight: bold;
+    color: $dark-blue-color;
+  }
+
+  .section-panel__chart-general {
+    margin-top: 25px;
+    @include mixin.flex-column();
+    align-items: center;
+  }
+
+  .section-panel__bar-1,
+  .section-panel__bar-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px $black-shadow-color;
+  }
+
+  .section-panel__bar-1 {
+    width: 40%;
+    color: $white-color;
+    background-color: $section-banner__container-2-color;
+  }
+  .section-panel__bar-2 {
+    width: 55%;
+    color: $dark-blue-color;
+    background-color: $section-banner__container-3-color;
+  }
+}
+@media (min-width: 500px) and (max-width: 768px) {
+  .section-panel__boat-container {
+    width: 50%;
+    height: 50%;
+  }
+
+  .section-panel__container-1 {
+    left: 40%;
+    width: 40px;
+  }
+
+  .section-panel__container-2 {
+    left: 32%;
+    width: 40px;
+  }
+  .section-panel__container-3 {
+    left: 43%;
+    width: 40px;
+  }
+  .section-panel__container-4 {
+    top: 40.5%;
+    left: 60%;
+    width: 40px;
+  }
+
+  .section-panel__container-5 {
+    left: 67%;
+    width: 40px;
+  }
+
+  .section-panel__cockpit-floor {
+    top: 18px;
+    left: -25px;
+    width: 80px;
+  }
+
+  .section-panel__cockpit-roof {
+    top: 20px;
+    left: -25px;
+    width: 60px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-panel__boat-container {
+    width: 40%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .section-panel__subtitle {
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+
+  .section-panel__container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 35%;
+  }
+
+  .section-panel__boat-container {
+    @include mixin.boat-body();
+  }
+
+  .section-panel__boat-container {
+    top: 35%;
+    left: 1%;
+    width: 20%;
+    height: 50%;
+  }
+
+  .section-panel__container-1,
+  .section-panel__container-2,
+  .section-panel__container-3,
+  .section-panel__container-4,
+  .section-panel__container-5 {
+    position: absolute;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px $black-shadow-color;
+  }
+
+  .section-panel__container-1 {
+    top: 3.4%;
+    left: 20%;
+    width: 60px;
+    background-color: $section-banner__container-1-color;
+  }
+
+  .section-panel__container-2 {
+    top: 70.4%;
+    left: 32%;
+    width: 60px;
+    background-color: $section-banner__container-2-color;
+  }
+  .section-panel__container-3 {
+    top: 54.5%;
+    left: 33%;
+    width: 45px;
+    background-color: $section-banner__container-3-color;
+  }
+  .section-panel__container-4 {
+    top: 75.5%;
+    left: 60%;
+    width: 60px;
+    background-color: $section-banner__container-4-color;
+  }
+
+  .section-panel__container-5 {
+    top: 60%;
+    left: 57%;
+    width: 70px;
+    background-color: $section-banner__container-5-color;
+  }
+
+  .section-panel__cockpit-floor {
+    left: -65px;
+    width: 130px;
+  }
+
+  .section-panel__cockpit-roof {
+    height: 20px;
+    top: 27px;
+    left: -51px;
+    width: 100px;
+  }
+
+  .section-panel__subtitle-guias {
+    margin-left: 2vw;
+    margin-top: 2dvh;
+    font-size: 20px;
+  }
 }

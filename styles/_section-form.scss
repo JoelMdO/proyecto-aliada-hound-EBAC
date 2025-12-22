@@ -1,6 +1,14 @@
 @use "mixin";
 @use "variables" as *;
 
+.section-form {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100vw;
+  height: 60dvh;
+}
+
 .section-form-container {
   @include mixin.section-container();
 }
@@ -18,7 +26,7 @@
     padding: 10px;
     border: 1px solid $form-border-color;
     border-radius: 5px;
-    width: 80vw;
+    width: 45%;
   }
 }
 
@@ -27,7 +35,7 @@
   color: $dark-blue-color;
   border: 1px solid $form-border-color;
   height: 4.7vh;
-  width: 82vw;
+  width: 46%;
   border-radius: 5px;
 }
 
@@ -40,4 +48,25 @@
   width: 20vw;
   height: 4.7vh;
   border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .section-form__form {
+    input {
+      width: 60vw;
+    }
+  }
+
+  .section-form__select-form {
+    color: $form-placeholder-text-color;
+    width: 66vw;
+
+    & option {
+      font-size: 40px;
+    }
+  }
+
+  .section-form__select-button {
+    width: 50vw;
+  }
 }
