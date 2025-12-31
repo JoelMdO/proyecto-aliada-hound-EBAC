@@ -39,15 +39,27 @@
   border-radius: 5px;
 }
 
-.section-form__select-button {
+.section-form__select-button,
+.section-form__select-button_clicked {
   font-size: 12px;
-  background-color: $section-banner__container-1-color;
+
   color: $dark-blue-color;
   font-weight: bold;
   border: 1px solid $form-border-color;
   width: 20vw;
   height: 4.7vh;
   border-radius: 5px;
+}
+
+.section-form__select-button {
+  background-color: $section-banner__container-1-color;
+  color: $dark-blue-color;
+}
+
+.section-form__select-button_clicked {
+  background-color: $green-color;
+  color: $black-shadow-color;
+  scale: 1.2;
 }
 
 @media (max-width: 768px) {
