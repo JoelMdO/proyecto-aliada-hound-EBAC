@@ -1,29 +1,50 @@
-import { retrieveGuias, updateGuiasTable } from "../utils/script";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../store/store";
+//import { retrieveGuias } from "../utils/script";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import type { Guia } from "../types/types";
 import { useState } from "react";
+import { registerGuideAndSave } from "../utils/guideThunk";
 
 const FormSection = ({
   setListSectionToUpdate,
 }: {
   setListSectionToUpdate: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  //
   const { register, handleSubmit, reset } = useForm<Guia>();
   const [buttonClicked, setButtonClicked] = useState<boolean>(false);
+  const dispatch = useDispatch<AppDispatch>();
+
+  ///--------------------------------------------------------
+  // Submit the form, will call Redux and update the localstorage
+  ///--------------------------------------------------------
   const onSubmit: SubmitHandler<Guia> = (data) => {
-    console.log("doing on submit", data);
-    updateGuiasTable(data);
-    retrieveGuias();
+    //console.log("doing on submit", data);
+
+    // Dispatch the action to register the guide
+    dispatch(
+      registerGuideAndSave(
+        {
+          numeroDeGuia: data.numeroDeGuia,
+          destinatario: data.destinatario,
+          origen: data.origen,
+          destino: data.destino,
+          fechaCreacion: data.fechaCreacion,
+          estadoInicial: data.estadoInicial,
+        },
+        "register"
+      )
+    );
+
+    // retrieveGuias();
     setListSectionToUpdate(true);
     setTimeout(() => {
       reset();
       setButtonClicked(false);
     }, 1000);
   };
-  //
-  //
+
   return (
     <>
       <section className="section-form" id="registro-de-guias">
@@ -86,7 +107,7 @@ const FormSection = ({
             type="submit"
             onClick={() => setButtonClicked(true)}
           >
-            Enviar
+            {`${buttonClicked ? "✅" : "Enviar"}`}
           </button>
         </form>
       </section>

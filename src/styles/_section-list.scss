@@ -34,6 +34,22 @@
   text-align: center;
 }
 
+.section-list__table-td-button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.section-list__table-td-button__delivered {
+  background-color: $button-delivered-background-color;
+  color: $button-delivered-text-color;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 @media (max-width: 490px) {
   .section-list__table {
     font-size: 10px;

@@ -1,10 +1,66 @@
 import guias from "../data/guias.ts";
+import type { AppDispatch } from "../store/store.tsx";
 import type { Guia } from "../types/types.js";
+import { registerGuideAndSave } from "./guideThunk.ts";
 
 ///--------------------------------------------------------
 // SAVE IN LOCAL STORAGE AND RENDER GUIAS
 ///--------------------------------------------------------
-// renderInitialGuias();
+export const fetchGuias = async ({
+  guidesFromStore,
+  setGuias,
+  dispatch,
+}: {
+  guidesFromStore: Guia[];
+  setGuias: (guias: Guia[]) => void;
+  dispatch: AppDispatch;
+}) => {
+  //
+  let initialGuias = retrieveGuias();
+
+  //==============================================
+  // If localstorage is empty, save guias and render them
+  // and update the Store.
+  //==============================================
+  if (
+    !initialGuias ||
+    (initialGuias.length === 0 && guidesFromStore.length === 0)
+  ) {
+    //console.log("loading guides from scratch");
+
+    saveGuias();
+    initialGuias = retrieveGuias();
+    initialGuias.forEach((guia: Guia) =>
+      dispatch(registerGuideAndSave(guia, "initial"))
+    );
+  }
+  //==============================================
+  // If there are more guides in the store, update the list to render
+  //==============================================
+  if (
+    guidesFromStore.length > 0 &&
+    guidesFromStore.length > initialGuias.length
+  ) {
+    // console.log("loading guias from store");
+
+    initialGuias = guidesFromStore;
+  }
+  //==============================================
+  // If localstorage has guides, but store not, load from localstorage
+  //==============================================
+  if (initialGuias && initialGuias.length > 0 && guidesFromStore.length === 0) {
+    // console.log("loading guias from localstorage to store");
+
+    initialGuias.forEach((guia: Guia) =>
+      dispatch(registerGuideAndSave(guia, "initial"))
+    );
+  }
+  //----------------------------------------------
+  // Finally, set the local state to render
+  //----------------------------------------------
+  setGuias(initialGuias);
+};
+//
 export function saveGuias() {
   // Save initial guias to local storage if not already present
   localStorage.setItem("guiasLocalStorage", JSON.stringify(guias));
@@ -16,62 +72,28 @@ export function retrieveGuias() {
   return guiasData ? JSON.parse(guiasData) : null;
 }
 
-//export function renderInitialGuias() {
-//const guiasFromLocalStorage = retrieveGuias();
-// const table = document.querySelector(".section-list__table");
-// if (guiasFromLocalStorage && guiasFromLocalStorage.length > 0) {
-//   guiasFromLocalStorage.forEach((guia: Guia) => {
-//     const row = document.createElement("tr");
-//     row.innerHTML = `
-//     <td>${guia.Numero_de_Guia}</td>
-//     <td>${guia.Origen}</td>
-//     <td>${guia.Destino}</td>
-//     <td>${guia.Destinatario}</td>
-//     <td>${guia.Estado}</td>
-//   `;
-// table.appendChild(row);
-//     });
-//   } else {
-//     saveGuias();
-//     renderInitialGuias();
-//   }
-// }
+export function updateGuiasTable(guia: Guia) {
+  console.log("at guias table", guia);
 
-export function updateGuiasTable(guia: FormData | Guia) {
   const guiasFromLocalStorage = retrieveGuias();
-  guiasFromLocalStorage.push(guia);
+
+  const guiaIndex = guiasFromLocalStorage.findIndex(
+    (g: Guia) => g.numeroDeGuia === guia.numeroDeGuia
+  );
+  //
+  console.log("guia index found", guiaIndex);
+
+  //
+  if (guiaIndex !== -1) {
+    guiasFromLocalStorage[guiaIndex] = { ...guia };
+  } else {
+    guiasFromLocalStorage.push(guia);
+  }
+
+  console.log("guia before updaing localstorage", guiasFromLocalStorage);
+
   localStorage.setItem(
     "guiasLocalStorage",
     JSON.stringify(guiasFromLocalStorage)
   );
 }
-///--------------------------------------------------------
-// FORM FILLING FUNCTIONALITY
-///--------------------------------------------------------
-// const form = document.querySelector(".section-form__form");
-
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const numeroDeGuia = document.getElementById("numero-de-guia").value;
-//   const origen = document.getElementById("origen").value;
-//   const destino = document.getElementById("destino").value;
-//   const destinatario = document.getElementById("destinatario").value;
-//   const estado = document.getElementById("estado").value;
-//   console.log("doing addGuides");
-//   console.log("numero de Guia", numeroDeGuia);
-
-//   //
-//   const guide = {
-//     Numero_de_Guia: numeroDeGuia,
-//     Origen: origen,
-//     Destino: destino,
-//     Destinatario: destinatario,
-//     Estado: estado,
-//   };
-//   console.log("guide", guide);
-
-//   updateGuiasTable(guide);
-//   retrieveGuias();
-//   form.reset();
-//   console.log("guias", guias);
-// });
