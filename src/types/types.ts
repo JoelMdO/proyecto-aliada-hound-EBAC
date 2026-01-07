@@ -6,3 +6,9 @@ export interface Guia {
   fechaCreacion: Date;
   estadoInicial: string;
 }
+
+export type JestReducer = { type: string };
+
+export interface JestGuiaState {
+  guides: Guia[];
+}
