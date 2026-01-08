@@ -2,9 +2,17 @@ import "../styles/_section-panel.scss";
 const PanelSection = () => {
   return (
     <>
-      <section className="section-panel" id="estado-general">
+      <section
+        className="section-panel"
+        id="estado-general"
+        role="region"
+        aria-labelledby="estado-general-title"
+      >
         <div className="section-panel__form-container">
-          <h2 className="section-panel__form-container-title">
+          <h2
+            id="estado-general-title"
+            className="section-panel__form-container-title"
+          >
             Estado General
           </h2>
         </div>

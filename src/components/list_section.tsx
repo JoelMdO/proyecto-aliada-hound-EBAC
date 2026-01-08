@@ -49,21 +49,33 @@ const ListSection = ({ updateListSection }: { updateListSection: boolean }) => {
 
   return (
     <>
-      <section className="section-list" id="lista-de-guias">
+      <section
+        className="section-list"
+        id="lista-de-guias"
+        aria-labelledby="lista-de-guias-title"
+      >
         <div className="section-list__container">
           <div className="section-list__form-container">
-            <h2 className="section-list__form-container-title">
+            <h2
+              id="lista-de-guias-title"
+              className="section-list__form-container-title"
+            >
               Lista de Guías
             </h2>
           </div>
-          <table className="section-list__table">
+          <table
+            className="section-list__table"
+            role="table"
+            aria-label="Lista de guías"
+          >
+            <caption className="visually-hidden">Lista de Guías</caption>
             <thead>
               <tr className="section-list__table-header">
-                <th>Numero de Guía</th>
-                <th>Origen</th>
-                <th>Destino</th>
-                <th>Destinatario</th>
-                <th>Estado</th>
+                <th scope="col">Numero de Guía</th>
+                <th scope="col">Origen</th>
+                <th scope="col">Destino</th>
+                <th scope="col">Destinatario</th>
+                <th scope="col">Estado</th>
               </tr>
             </thead>
             <tbody>
@@ -82,6 +94,7 @@ const ListSection = ({ updateListSection }: { updateListSection: boolean }) => {
                       }`}
                       type="button"
                       onClick={() => handleDeliveryClick(guia.numeroDeGuia)}
+                      aria-label={`Mark guide ${guia.numeroDeGuia} as delivered`}
                     >
                       {guia.estadoInicial}
                     </button>

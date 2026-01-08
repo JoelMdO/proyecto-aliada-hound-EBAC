@@ -47,43 +47,58 @@ const FormSection = ({
 
   return (
     <>
-      <section className="section-form" id="registro-de-guias">
+      <section
+        className="section-form"
+        id="registro-de-guias"
+        aria-labelledby="registro-de-guias-title"
+      >
         <div className="section-form-container">
-          <h2 className="section-form__container-title">Registro de Guías</h2>
+          <h2
+            id="registro-de-guias-title"
+            className="section-form__container-title"
+          >
+            Registro de Guías
+          </h2>
         </div>
         <form
           className="section-form__form"
           action="/"
           onSubmit={handleSubmit(onSubmit)}
+          aria-label="Registro de Guías form"
         >
           <input
             id="numero-de-guia"
             type="text"
             placeholder="Numero de Guía"
+            aria-label="Numero de Guía"
             {...register("numeroDeGuia", { required: true })}
           />
           <input
             id="origen"
             type="text"
             placeholder="Origen"
+            aria-label="Origen"
             {...register("origen", { required: true })}
           />
           <input
             id="destino"
             type="text"
             placeholder="Destino"
+            aria-label="Destino"
             {...register("destino", { required: true })}
           />
           <input
             id="destinatario"
             type="text"
             placeholder="Destinatario"
+            aria-label="Destinatario"
             {...register("destinatario", { required: true })}
           />
           <input
             id="fechaCreacion"
             type="text"
             placeholder="Fecha de Creacion"
+            aria-label="Fecha de Creacion"
             onFocus={(e) => (e.target.type = "date")}
             {...register("fechaCreacion", { required: true })}
           />
@@ -91,6 +106,7 @@ const FormSection = ({
             className="section-form__select-form"
             id="estado"
             title="Estado Inicial"
+            aria-label="Estado Inicial"
             {...register("estadoInicial", { required: true })}
           >
             <option value="">Estado</option>
@@ -106,6 +122,7 @@ const FormSection = ({
             }`}
             type="submit"
             onClick={() => setButtonClicked(true)}
+            aria-label="Enviar registro de guía"
           >
             {`${buttonClicked ? "✅" : "Enviar"}`}
           </button>

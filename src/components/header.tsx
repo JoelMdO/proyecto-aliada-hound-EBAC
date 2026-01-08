@@ -3,15 +3,17 @@ import "../styles/_header.scss";
 const Header = () => {
   return (
     <>
-      <header>
+      <header role="banner" aria-label="Top banner">
         <div className="header-logo__container">
-          <img
-            src="assets/logo-Hound_Express-bg-white.png"
-            alt="logo-Hound_Express-bg-white"
-            width="180"
-            height="80"
-            className="header-logo"
-          />
+          <a href="/" aria-label="Go to homepage">
+            <img
+              src="assets/logo-Hound_Express-bg-white.png"
+              alt="Hound Express logo"
+              width="180"
+              height="80"
+              className="header-logo"
+            />
+          </a>
           <div className="header-phone-1">
             <strong>USA</strong>
             <p>1-800-123-456</p>
@@ -25,14 +27,21 @@ const Header = () => {
             name="language"
             id="language"
             title="Language"
+            aria-label="Select language"
           >
             <option value="">Language</option>
             <option value="English">English</option>
             <option value="Spanish">Spanish</option>
           </select>
         </div>
-        <nav className="header-nav-container">
-          <a href="">Inicio</a>
+        <nav
+          className="header-nav-container"
+          role="navigation"
+          aria-label="Main navigation"
+        >
+          <a href="" aria-current="page">
+            Inicio
+          </a>
           <a href="#registro-de-guias">Registro de Guías</a>
           <a href="#estado-general">Estado General</a>
           <a href="#lista-de-guias">Lista de Guías</a>
