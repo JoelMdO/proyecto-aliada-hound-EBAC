@@ -196,7 +196,7 @@ header {
   top: 23dvh;
   left: 20vw;
   /* 1. Set the background image */
-  background-image: url("assets/containers.jpg");
+  background-image: url("/assets/containers.jpg");
   background-size: cover; /* Optional: ensures image covers the text area */
   background-repeat: no-repeat; /* Optional: prevents tiling */
 
