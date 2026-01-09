@@ -5,15 +5,13 @@ const Header = () => {
     <>
       <header role="banner" aria-label="Top banner">
         <div className="header-logo__container">
-          <a href="/" aria-label="Go to homepage">
-            <img
-              src="assets/logo-Hound_Express-bg-white.png"
-              alt="Hound Express logo"
-              width="180"
-              height="80"
-              className="header-logo"
-            />
-          </a>
+          <img
+            src="assets/logo-Hound_Express-bg-white.png"
+            alt="Hound Express logo"
+            width="180"
+            height="80"
+            className="header-logo"
+          />
           <div className="header-phone-1">
             <strong>USA</strong>
             <p>1-800-123-456</p>

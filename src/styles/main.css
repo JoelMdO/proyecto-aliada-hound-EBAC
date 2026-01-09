@@ -256,15 +256,25 @@ header p {
   border-radius: 5px;
 }
 
-.section-form__select-button {
+.section-form__select-button,
+.section-form__select-button--clicked {
   font-size: 12px;
-  background-color: #6ac6de;
-  color: #091e3f;
   font-weight: bold;
-  border: 1px solid #ccc;
   width: 20vw;
   height: 4.7vh;
   border-radius: 5px;
+}
+
+.section-form__select-button {
+  border: 1px solid #ccc;
+  background-color: #6ac6de;
+  color: #091e3f;
+}
+
+.section-form__select-button--clicked {
+  border: 1px solid #28a745;
+  background-color: #28a745;
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -1108,11 +1118,25 @@ body {
   text-align: center;
 }
 
+.section-list__table-td-button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.section-list__table-td-button__delivered {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 @media (max-width: 490px) {
   .section-list__table {
     font-size: 10px;
     width: min(88vw, 950px);
   }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
