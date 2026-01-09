@@ -6,7 +6,7 @@ const Header = () => {
       <header role="banner" aria-label="Top banner">
         <div className="header-logo__container">
           <img
-            src="/assets/logo-Hound_Express-bg-white.png"
+            src="./assets/logo-Hound_Express-bg-white.png"
             alt="Hound Express logo"
             width="180"
             height="80"

@@ -820,7 +820,7 @@ body {
   top: 53%;
   left: 50%;
   /* 1. Set the background image */
-  background-image: url("/assets/containers.jpg");
+  background-image: url("./assets/containers.jpg");
   background-size: cover; /* Optional: ensures image covers the text area */
   background-repeat: no-repeat; /* Optional: prevents tiling */
   /* Set text properties */
@@ -1139,4 +1139,4 @@ body {
     font-size: 10px;
     width: min(88vw, 950px);
   }
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
