@@ -2,7 +2,7 @@ import {
   guideSlice,
   registerGuide,
   updateGuideStatus,
-} from "../slices/guide_slice";
+} from "../redux/slices/guide_slice";
 import type { JestGuiaState, JestReducer } from "../types/types";
 
 const reducer = guideSlice.reducer;

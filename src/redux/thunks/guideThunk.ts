@@ -1,6 +1,6 @@
 import { type AppDispatch, type RootState } from "../store/store";
-import { updateGuiasTable } from "../utils/script";
-import { type Guia } from "../types/types";
+import { updateGuiasTable } from "../../utils/script";
+import { type Guia } from "../../types/types";
 import { registerGuide, updateGuideStatus } from "../slices/guide_slice";
 
 export const registerGuideAndSave =
@@ -26,12 +26,12 @@ export const markGuideAsReceivedAndSave =
       updateGuideStatus({
         numeroDeGuia: numeroDeGuia,
         estadoInicial: "Entregado",
-      })
+      }),
     );
 
     //
     const updatedGuide = getState().guides.guides.find(
-      (g) => g.numeroDeGuia === numeroDeGuia
+      (g) => g.numeroDeGuia === numeroDeGuia,
     );
     //console.log("upodatedGuide at markGuide after store update", updatedGuide);
 

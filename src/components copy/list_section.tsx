@@ -3,13 +3,14 @@ import "../styles/_section-list.scss";
 import type { Guia } from "../types/types";
 import { fetchGuias } from "../utils/script";
 import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch } from "../store/store";
-import type { RootState } from "../store/store";
-import { markGuideAsReceivedAndSave } from "../utils/guideThunk";
+import type { AppDispatch } from "../redux/store/store";
+import type { RootState } from "../redux/store/store";
+import { markGuideAsReceivedAndSave } from "../redux/thunks/guideThunk";
+import { list as listText } from "../constants/list_text";
 const ListSection = ({ updateListSection }: { updateListSection: boolean }) => {
   const [guias, setGuias] = useState<Guia[]>([]);
   const guidesFromStore = useSelector(
-    (state: RootState) => state.guides.guides
+    (state: RootState) => state.guides.guides,
   );
   const [deliveredStatus, setDeliveredStatus] = useState<
     Record<string, boolean>
@@ -37,8 +38,8 @@ const ListSection = ({ updateListSection }: { updateListSection: boolean }) => {
       prevGuias.map((guia) =>
         guia.numeroDeGuia === numeroDeGuia
           ? { ...guia, estadoInicial: "Entregado" }
-          : guia
-      )
+          : guia,
+      ),
     );
 
     setDeliveredStatus((prevStatus) => ({
@@ -60,22 +61,22 @@ const ListSection = ({ updateListSection }: { updateListSection: boolean }) => {
               id="lista-de-guias-title"
               className="section-list__form-container-title"
             >
-              Lista de Guías
+              {listText.title}
             </h2>
           </div>
           <table
             className="section-list__table"
             role="table"
-            aria-label="Lista de guías"
+            aria-label={listText.tableAria}
           >
             <caption className="visually-hidden">Lista de Guías</caption>
             <thead>
               <tr className="section-list__table-header">
-                <th scope="col">Numero de Guía</th>
-                <th scope="col">Origen</th>
-                <th scope="col">Destino</th>
-                <th scope="col">Destinatario</th>
-                <th scope="col">Estado</th>
+                {listText.headers.map((h) => (
+                  <th key={h} scope="col">
+                    {h}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>

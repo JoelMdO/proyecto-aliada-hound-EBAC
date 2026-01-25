@@ -8,13 +8,14 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build:sass": "sass --no-source-map main.scss styles.css",
-    "watch:sass": "sass --watch main.scss:styles.css"
+    "build:sass": "sass --no-source-map src/styles/main.scss src/styles/styles.css",
+    "watch:sass": "sass --watch src/styles/main.scss:src/styles/styles.css"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
+    "axios": "^1.13.2",
     "jest": "^30.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

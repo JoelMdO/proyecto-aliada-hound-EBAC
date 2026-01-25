@@ -1,7 +1,7 @@
 import guias from "../data/guias.ts";
 import type { AppDispatch } from "../store/store.tsx";
 import type { Guia } from "../types/types.js";
-import { registerGuideAndSave } from "./guideThunk.ts";
+import { registerGuideAndSave } from "../redux/thunks/guideThunk.ts";
 
 ///--------------------------------------------------------
 // SAVE IN LOCAL STORAGE AND RENDER GUIAS
@@ -31,7 +31,7 @@ export const fetchGuias = async ({
     saveGuias();
     initialGuias = retrieveGuias();
     initialGuias.forEach((guia: Guia) =>
-      dispatch(registerGuideAndSave(guia, "initial"))
+      dispatch(registerGuideAndSave(guia, "initial")),
     );
   }
   //==============================================
@@ -52,7 +52,7 @@ export const fetchGuias = async ({
     // console.log("loading guias from localstorage to store");
 
     initialGuias.forEach((guia: Guia) =>
-      dispatch(registerGuideAndSave(guia, "initial"))
+      dispatch(registerGuideAndSave(guia, "initial")),
     );
   }
   //----------------------------------------------
@@ -78,7 +78,7 @@ export function updateGuiasTable(guia: Guia) {
   const guiasFromLocalStorage = retrieveGuias();
 
   const guiaIndex = guiasFromLocalStorage.findIndex(
-    (g: Guia) => g.numeroDeGuia === guia.numeroDeGuia
+    (g: Guia) => g.numeroDeGuia === guia.numeroDeGuia,
   );
   //
   console.log("guia index found", guiaIndex);
@@ -94,6 +94,6 @@ export function updateGuiasTable(guia: Guia) {
 
   localStorage.setItem(
     "guiasLocalStorage",
-    JSON.stringify(guiasFromLocalStorage)
+    JSON.stringify(guiasFromLocalStorage),
   );
 }

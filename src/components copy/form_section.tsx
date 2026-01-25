@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../store/store";
+import type { AppDispatch } from "../redux/store/store";
 //import { retrieveGuias } from "../utils/script";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import type { Guia } from "../types/types";
 import { useState } from "react";
-import { registerGuideAndSave } from "../utils/guideThunk";
+import { registerGuideAndSave } from "../redux/thunks/guideThunk";
+import { form } from "../constants/form_text";
 
 const FormSection = ({
   setListSectionToUpdate,
@@ -33,8 +34,8 @@ const FormSection = ({
           fechaCreacion: data.fechaCreacion,
           estadoInicial: data.estadoInicial,
         },
-        "register"
-      )
+        "register",
+      ),
     );
 
     // retrieveGuias();
@@ -57,7 +58,7 @@ const FormSection = ({
             id="registro-de-guias-title"
             className="section-form__container-title"
           >
-            Registro de Guías
+            {form.sectionTitle}
           </h2>
         </div>
         <form
@@ -69,50 +70,52 @@ const FormSection = ({
           <input
             id="numero-de-guia"
             type="text"
-            placeholder="Numero de Guía"
-            aria-label="Numero de Guía"
+            placeholder={form.placeholders.numeroDeGuia}
+            aria-label={form.placeholders.numeroDeGuia}
             {...register("numeroDeGuia", { required: true })}
           />
           <input
             id="origen"
             type="text"
-            placeholder="Origen"
-            aria-label="Origen"
+            placeholder={form.placeholders.origen}
+            aria-label={form.placeholders.origen}
             {...register("origen", { required: true })}
           />
           <input
             id="destino"
             type="text"
-            placeholder="Destino"
-            aria-label="Destino"
+            placeholder={form.placeholders.destino}
+            aria-label={form.placeholders.destino}
             {...register("destino", { required: true })}
           />
           <input
             id="destinatario"
             type="text"
-            placeholder="Destinatario"
-            aria-label="Destinatario"
+            placeholder={form.placeholders.destinatario}
+            aria-label={form.placeholders.destinatario}
             {...register("destinatario", { required: true })}
           />
           <input
             id="fechaCreacion"
             type="text"
-            placeholder="Fecha de Creacion"
-            aria-label="Fecha de Creacion"
+            placeholder={form.placeholders.fechaCreacion}
+            aria-label={form.placeholders.fechaCreacion}
             onFocus={(e) => (e.target.type = "date")}
             {...register("fechaCreacion", { required: true })}
           />
           <select
             className="section-form__select-form"
             id="estado"
-            title="Estado Inicial"
-            aria-label="Estado Inicial"
+            title={form.select.title}
+            aria-label={form.select.ariaLabel}
             {...register("estadoInicial", { required: true })}
           >
-            <option value="">Estado</option>
-            <option value="En tránsito">En tránsito</option>
-            <option value="Entregado">Entregado</option>
-            <option value="Pendiente">Pendiente</option>
+            <option value="">{form.select.default}</option>
+            {form.select.options.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
           </select>
           <button
             className={`${
@@ -122,9 +125,9 @@ const FormSection = ({
             }`}
             type="submit"
             onClick={() => setButtonClicked(true)}
-            aria-label="Enviar registro de guía"
+            aria-label={form.submit.ariaLabel}
           >
-            {`${buttonClicked ? "✅" : "Enviar"}`}
+            {`${buttonClicked ? form.submit.sentEmoji : form.submit.send}`}
           </button>
         </form>
       </section>

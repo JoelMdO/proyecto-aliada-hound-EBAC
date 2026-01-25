@@ -16,27 +16,38 @@ header {
   margin-bottom: 20px;
   text-align: center;
   width: 100vw;
+  font-size: 22px;
+}
+header p {
+  margin: 0;
+  padding: 0;
+  font-size: 21px;
 }
 
 .header-logo__container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   gap: 20px;
 }
 .header-logo__container img {
   margin-right: auto;
+  width: 25%;
+  height: 130px;
 }
 
 .header-select {
+  display: flex;
   font-size: 12px;
   background-color: #6ac6de;
   color: white;
   font-weight: bold;
   border-color: #091e3f;
+  width: 200px;
   height: 25px;
+  margin-right: 50px;
   border-radius: 5px;
 }
 
@@ -51,27 +62,164 @@ header {
 }
 
 .header-nav-container {
-  width: 100%;
-  height: 40px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 5px 0px 5px 10px;
-  gap: 15px;
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0;
   background-color: #091e3f;
 }
 .header-nav-container a {
+  margin: 0;
+  padding: 0;
   color: white;
   text-decoration: none;
   font-weight: normal;
   font-size: 14px;
 }
 
+@media (max-width: 490px) {
+  .header-logo {
+    width: 150px !important;
+    height: 50px !important;
+  }
+  .header-select {
+    font-size: 8px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  .header-phone-1,
+  .header-phone-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    width: 25%;
+  }
+  .header-phone-1 p,
+  .header-phone-2 p {
+    font-size: 7px;
+  }
+  .header-nav-container {
+    justify-content: center;
+    gap: 10px;
+  }
+  .header-nav-container a {
+    font-size: 8px;
+  }
+}
+@media (min-width: 500px) and (max-width: 768px) {
+  .header-logo {
+    width: 40% !important;
+    height: 40% !important;
+  }
+  .header-select {
+    font-size: 8px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  .header-phone-1,
+  .header-phone-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    width: 25%;
+  }
+  .header-phone-1 p,
+  .header-phone-2 p {
+    font-size: 12px;
+  }
+  .header-nav-container {
+    padding: 5px 0 5px 10px;
+    gap: 5px;
+    background-color: #091e3f;
+  }
+  .header-nav-container a {
+    font-size: 10px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-logo {
+    width: 40% !important;
+    height: 40% !important;
+  }
+  .header-select {
+    font-size: 8px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  .header-phone-1,
+  .header-phone-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    width: 25%;
+  }
+  .header-phone-1 p,
+  .header-phone-2 p {
+    font-size: 17px;
+  }
+  .header-nav-container {
+    padding: 5px 0 5px 10px;
+    gap: 5px;
+    background-color: #091e3f;
+  }
+  .header-nav-container a {
+    font-size: 10px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .header-logo {
+    width: 40%;
+    height: auto;
+  }
+  .header-select {
+    font-size: 8px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  .header-phone-1,
+  .header-phone-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    width: 25%;
+  }
+  .header-phone-1 p,
+  .header-phone-2 p {
+    font-size: 20px;
+  }
+  .header-nav-container {
+    padding: 5px 0 5px 10px;
+    gap: 5px;
+    background-color: #091e3f;
+  }
+  .header-nav-container a {
+    font-size: 10px;
+  }
+}
+.section-form {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100vw;
+  height: 60dvh;
+}
+
 .section-form-container {
   display: flex;
   position: relative;
-  margin-top: 20px;
+  margin-top: 10px;
   background: linear-gradient(90deg, #a9c4df, #e1f4e2);
   height: 8dvh;
   margin-bottom: 20px;
@@ -96,7 +244,7 @@ header {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 80vw;
+  width: 45%;
 }
 
 .section-form__select-form {
@@ -104,25 +252,58 @@ header {
   color: #091e3f;
   border: 1px solid #ccc;
   height: 4.7vh;
-  width: 82vw;
+  width: 46%;
   border-radius: 5px;
 }
 
-.section-form__select-button {
+.section-form__select-button,
+.section-form__select-button--clicked {
   font-size: 12px;
-  background-color: #6ac6de;
-  color: #091e3f;
   font-weight: bold;
-  border: 1px solid #ccc;
   width: 20vw;
   height: 4.7vh;
   border-radius: 5px;
 }
 
+.section-form__select-button {
+  border: 1px solid #ccc;
+  background-color: #6ac6de;
+  color: #091e3f;
+}
+
+.section-form__select-button--clicked {
+  border: 1px solid #28a745;
+  background-color: #28a745;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .section-form__form input {
+    width: 60vw;
+  }
+  .section-form__select-form {
+    color: #979696;
+    width: 66vw;
+  }
+  .section-form__select-form option {
+    font-size: 40px;
+  }
+  .section-form__select-button {
+    width: 50vw;
+  }
+}
+.section-panel {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100vw;
+  height: 50dvh;
+}
+
 .section-panel__form-container {
   display: flex;
   position: relative;
-  margin-top: 20px;
+  margin-top: 10px;
   background: linear-gradient(90deg, #a9c4df, #e1f4e2);
   height: 8dvh;
   margin-bottom: 20px;
@@ -136,25 +317,105 @@ header {
   font-size: 24px;
 }
 
-.section-panel__boat-container-general {
-  margin-top: 5dvh;
-  width: 30vw;
-  height: 20dvh;
-  margin-left: 10vw;
+.section-panel__subtitle {
+  margin-top: 20px;
+  margin-left: 15px;
 }
 
-.section-panel__cockpit-floor-general {
+.section-panel__container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 35%;
+}
+
+.section-panel__boat-container {
+  display: flex;
+  position: absolute;
+  background: linear-gradient(135deg, #bb9c69, #ee810d);
+  border-bottom-right-radius: 40px;
+  border: 3px solid;
+  border-top-color: rgba(139, 57, 9, 0.4745098039);
+  border-bottom-color: rgba(139, 57, 9, 0.4745098039);
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  box-shadow: 4px 3px 9px rgba(165, 223, 233, 0.9019607843);
+}
+
+.section-panel__boat-container {
+  top: 35%;
+  left: 1%;
+  width: 20%;
+  height: 50%;
+}
+
+.section-panel__container-1,
+.section-panel__container-2,
+.section-panel__container-3,
+.section-panel__container-4,
+.section-panel__container-5 {
+  position: absolute;
+  height: 10px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.section-panel__container-1 {
+  top: 3.4%;
+  left: 20%;
+  width: 60px;
+  background-color: #6ac6de;
+}
+
+.section-panel__container-2 {
+  top: 70.4%;
+  left: 32%;
+  width: 60px;
+  background-color: #6e6ade;
+}
+
+.section-panel__container-3 {
+  top: 54.5%;
+  left: 33%;
+  width: 45px;
+  background-color: #70de6a;
+}
+
+.section-panel__container-4 {
+  top: 75.5%;
+  left: 60%;
+  width: 60px;
+  background-color: #de766a;
+}
+
+.section-panel__container-5 {
+  top: 60%;
+  left: 57%;
+  width: 70px;
+  background-color: #98a2a4;
+}
+
+.section-panel__cockpit-floor,
+.section-panel__cockpit-roof {
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 4px 0 0 6px rgba(0, 0, 0, 0.4);
+  transform: rotate(90deg);
+  background-color: #824a0a;
+}
+
+.section-panel__cockpit-floor {
   height: 30px;
-  top: 2.8dvh;
-  left: -7.3vw;
-  width: 16vw;
+  top: 25px;
+  left: -65px;
+  width: 160px;
 }
 
-.section-panel__cockpit-roof-general {
+.section-panel__cockpit-roof {
   height: 20px;
-  top: 3dvh;
-  left: -5vw;
-  width: 10vw;
+  top: 27px;
+  left: -45px;
+  width: 120px;
 }
 
 .section-panel__subtitle-guias {
@@ -166,6 +427,7 @@ header {
 }
 
 .section-panel__chart-general {
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,49 +435,269 @@ header {
 
 .section-panel__bar-1,
 .section-panel__bar-2 {
-  position: relative;
-  height: 4dvh;
-  border-radius: 5px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 90%;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .section-panel__bar-1 {
-  width: 40vw;
+  width: 40%;
   color: white;
   background-color: #6e6ade;
 }
 
 .section-panel__bar-2 {
-  width: 55vw;
+  width: 55%;
   color: #091e3f;
   background-color: #70de6a;
 }
 
+@media (max-width: 490px) {
+  .section-panel__container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 35%;
+  }
+  .section-panel__boat-container {
+    top: 35%;
+    left: 1%;
+    width: 50%;
+    height: 50%;
+  }
+  .section-panel__container-1 {
+    top: 3.4%;
+    left: 40%;
+    width: 20px;
+  }
+  .section-panel__container-2 {
+    top: 70.4%;
+    left: 32%;
+    width: 20px;
+  }
+  .section-panel__container-3 {
+    top: 54.5%;
+    left: 43%;
+    width: 20px;
+  }
+  .section-panel__container-4 {
+    top: 40.5%;
+    left: 60%;
+    width: 20px;
+  }
+  .section-panel__container-5 {
+    top: 60%;
+    left: 67%;
+    width: 20px;
+  }
+  .section-panel__cockpit-floor {
+    height: 30px;
+    top: 18px;
+    left: -25px;
+    width: 80px;
+  }
+  .section-panel__cockpit-roof {
+    height: 20px;
+    top: 20px;
+    left: -25px;
+    width: 60px;
+  }
+  .section-panel__subtitle-guias {
+    margin-left: 10vw;
+    margin-top: 2dvh;
+    font-size: 18px;
+    font-weight: bold;
+    color: #091e3f;
+  }
+  .section-panel__chart-general {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .section-panel__bar-1,
+  .section-panel__bar-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  .section-panel__bar-1 {
+    width: 40%;
+    color: white;
+    background-color: #6e6ade;
+  }
+  .section-panel__bar-2 {
+    width: 55%;
+    color: #091e3f;
+    background-color: #70de6a;
+  }
+}
+@media (min-width: 500px) and (max-width: 768px) {
+  .section-panel__boat-container {
+    width: 50%;
+    height: 50%;
+  }
+  .section-panel__container-1 {
+    left: 40%;
+    width: 40px;
+  }
+  .section-panel__container-2 {
+    left: 32%;
+    width: 40px;
+  }
+  .section-panel__container-3 {
+    left: 43%;
+    width: 40px;
+  }
+  .section-panel__container-4 {
+    top: 40.5%;
+    left: 60%;
+    width: 40px;
+  }
+  .section-panel__container-5 {
+    left: 67%;
+    width: 40px;
+  }
+  .section-panel__cockpit-floor {
+    top: 18px;
+    left: -25px;
+    width: 80px;
+  }
+  .section-panel__cockpit-roof {
+    top: 20px;
+    left: -25px;
+    width: 60px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-panel__boat-container {
+    width: 40%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .section-panel__subtitle {
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+  .section-panel__container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 35%;
+  }
+  .section-panel__boat-container {
+    display: flex;
+    position: absolute;
+    background: linear-gradient(135deg, #bb9c69, #ee810d);
+    border-bottom-right-radius: 40px;
+    border: 3px solid;
+    border-top-color: rgba(139, 57, 9, 0.4745098039);
+    border-bottom-color: rgba(139, 57, 9, 0.4745098039);
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    box-shadow: 4px 3px 9px rgba(165, 223, 233, 0.9019607843);
+  }
+  .section-panel__boat-container {
+    top: 35%;
+    left: 1%;
+    width: 20%;
+    height: 50%;
+  }
+  .section-panel__container-1,
+  .section-panel__container-2,
+  .section-panel__container-3,
+  .section-panel__container-4,
+  .section-panel__container-5 {
+    position: absolute;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  .section-panel__container-1 {
+    top: 3.4%;
+    left: 20%;
+    width: 60px;
+    background-color: #6ac6de;
+  }
+  .section-panel__container-2 {
+    top: 70.4%;
+    left: 32%;
+    width: 60px;
+    background-color: #6e6ade;
+  }
+  .section-panel__container-3 {
+    top: 54.5%;
+    left: 33%;
+    width: 45px;
+    background-color: #70de6a;
+  }
+  .section-panel__container-4 {
+    top: 75.5%;
+    left: 60%;
+    width: 60px;
+    background-color: #de766a;
+  }
+  .section-panel__container-5 {
+    top: 60%;
+    left: 57%;
+    width: 70px;
+    background-color: #98a2a4;
+  }
+  .section-panel__cockpit-floor {
+    left: -65px;
+    width: 130px;
+  }
+  .section-panel__cockpit-roof {
+    height: 20px;
+    top: 27px;
+    left: -51px;
+    width: 100px;
+  }
+  .section-panel__subtitle-guias {
+    margin-left: 2vw;
+    margin-top: 2dvh;
+    font-size: 20px;
+  }
+}
 body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100dvh;
+}
+
+.section-banner {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100vw;
+  height: 40dvh;
 }
 
 .section-banner__red-line {
-  width: 100%;
+  width: 100vw;
   height: 25px;
   background-color: red;
 }
 
 .section-banner__background {
   position: relative;
-  width: 100%;
-  height: 50dvh;
+  width: 100vw;
+  height: 40dvh;
   background-color: #091e3f;
 }
 
 .section-banner__boat-container,
 .section-banner__boat-container-general {
-  position: relative;
+  display: flex;
+  position: absolute;
   background: linear-gradient(135deg, #bb9c69, #ee810d);
   border-bottom-right-radius: 40px;
   border: 3px solid;
@@ -227,15 +709,25 @@ body {
 }
 
 .section-banner__boat-container {
-  top: 5dvh;
+  top: 5%;
   left: 1vw;
-  width: 50vw;
-  height: 15dvh;
+  width: 50%;
+  height: 35%;
+}
+
+.section-banner__boat-text-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 10%;
+  width: 40%;
+  height: 100%;
 }
 
 .section-banner__banner-title,
 .section-banner__banner-subtitle {
-  position: absolute;
+  display: flex;
   margin: 0;
   letter-spacing: 5px;
   color: #281407;
@@ -246,20 +738,17 @@ body {
 }
 
 .section-banner__banner-title {
-  top: 1dvh;
-  left: 6vw;
-  font-size: 50px;
+  font-size: 3.5rem;
 }
 
 .section-banner__banner-subtitle {
-  top: 8dvh;
-  left: 5vw;
-  font-size: 40px;
+  margin-top: 5px;
+  font-size: 3rem;
 }
 
 .section-banner__container-1,
 .section-banner__container-2,
-.section-banner__container-2,
+.section-banner__container-3,
 .section-banner__container-4,
 .section-banner__container-5 {
   position: absolute;
@@ -269,37 +758,37 @@ body {
 }
 
 .section-banner__container-1 {
-  top: 3.4dvw;
-  left: 20vw;
-  width: 60px;
+  top: 18.5%;
+  left: 60%;
+  width: 90px;
   background-color: #6ac6de;
 }
 
 .section-banner__container-2 {
-  top: 3.4dvw;
-  left: 32vw;
-  width: 60px;
+  top: 73.4%;
+  left: 53%;
+  width: 90px;
   background-color: #6e6ade;
 }
 
 .section-banner__container-3 {
-  top: 5.5dvw;
-  left: 33vw;
-  width: 45px;
+  top: 55.5%;
+  left: 63%;
+  width: 85px;
   background-color: #70de6a;
 }
 
 .section-banner__container-4 {
-  top: 5.5dvw;
-  left: 36vw;
-  width: 60px;
+  top: 25.5%;
+  left: 50%;
+  width: 90px;
   background-color: #de766a;
 }
 
 .section-banner__container-5 {
-  top: 5.5dvw;
-  left: 20vw;
-  width: 70px;
+  top: 49.5%;
+  left: 49%;
+  width: 90px;
   background-color: #98a2a4;
 }
 
@@ -314,28 +803,28 @@ body {
 
 .section-banner__cockpit-floor {
   height: 30px;
-  top: 4dvw;
-  left: -5.9vw;
+  top: 35%;
+  left: -7.9%;
   width: 160px;
 }
 
 .section-banner__cockpit-roof {
   height: 20px;
-  top: 3.8dvw;
-  left: -4.5vw;
+  top: 35%;
+  left: -6.5%;
   width: 120px;
 }
 
 .section-banner__mask-container {
   position: absolute;
-  top: 23dvh;
-  left: 20vw;
+  top: 53%;
+  left: 50%;
   /* 1. Set the background image */
   background-image: url("./assets/containers.jpg");
   background-size: cover; /* Optional: ensures image covers the text area */
   background-repeat: no-repeat; /* Optional: prevents tiling */
   /* Set text properties */
-  font-size: 15vw; /* Large, responsive text size */
+  font-size: 10rem; /* Large, responsive text size */
   font-weight: bold;
   font-family: sans-serif;
   text-align: center;
@@ -345,10 +834,245 @@ body {
   color: transparent;
   /* 2. Apply the background as the mask source */
   /* -webkit- is essential for broad browser compatibility for this feature */
+  white-space: nowrap;
   -webkit-background-clip: text;
   background-clip: text; /* Standard property */
 }
 
+/*-==============================================*/
+/* Media Queries 
+/*-==============================================*/
+@media (max-width: 490px) {
+  .section-banner {
+    height: 30dvh;
+  }
+  .section-banner__background {
+    width: 100%;
+    height: 100%;
+  }
+  .section-banner__banner-title {
+    margin-left: 5px;
+    font-size: 1.5rem;
+  }
+  .section-banner__banner-subtitle {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 0.9rem;
+  }
+  .section-banner__container-1 {
+    top: 18.5%;
+    left: 60%;
+    width: 20px;
+  }
+  .section-banner__container-2 {
+    top: 73.4%;
+    left: 53%;
+    width: 20px;
+  }
+  .section-banner__container-3 {
+    top: 35%;
+    left: 73%;
+    width: 20px;
+  }
+  .section-banner__container-4 {
+    top: 25.5%;
+    left: 50%;
+    width: 20px;
+  }
+  .section-banner__container-5 {
+    top: 49.5%;
+    left: 65%;
+    width: 20px;
+  }
+  .section-banner__cockpit-floor {
+    height: 20px;
+    top: 35%;
+    left: -26%;
+    width: 110px;
+  }
+  .section-banner__cockpit-roof {
+    height: 10px;
+    top: 35%;
+    left: -12.5%;
+    width: 60px;
+  }
+  .section-banner__mask-container {
+    top: 53%;
+    left: 20%;
+    font-size: 4rem; /* Large, responsive text size */
+  }
+}
+@media (min-width: 500px) and (max-width: 768px) {
+  .section-banner__banner-title {
+    margin-left: 5px;
+    font-size: 2.5rem;
+  }
+  .section-banner__banner-subtitle {
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 1.5rem;
+  }
+  .section-banner__container-1 {
+    top: 18.5%;
+    left: 60%;
+    width: 30px;
+  }
+  .section-banner__container-2 {
+    top: 73.4%;
+    left: 53%;
+    width: 30px;
+  }
+  .section-banner__container-3 {
+    top: 35%;
+    left: 73%;
+    width: 30px;
+  }
+  .section-banner__container-4 {
+    top: 30.5%;
+    left: 55%;
+    width: 30px;
+  }
+  .section-banner__container-5 {
+    top: 49.5%;
+    left: 65%;
+    width: 30px;
+  }
+  .section-banner__cockpit-floor {
+    height: 30px;
+    top: 35%;
+    left: -17%;
+    width: 100px;
+  }
+  .section-banner__cockpit-roof {
+    height: 10px;
+    top: 35%;
+    left: -9.5%;
+    width: 60px;
+  }
+  .section-banner__mask-container {
+    top: 53%;
+    left: 20%;
+    font-size: 5.5rem; /* Large, responsive text size */
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-banner__banner-title {
+    margin-left: 5px;
+    font-size: 3.5rem;
+  }
+  .section-banner__banner-subtitle {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 2.9rem;
+  }
+  .section-banner__container-1 {
+    top: 18.5%;
+    left: 60%;
+    width: 40px;
+  }
+  .section-banner__container-2 {
+    top: 73.4%;
+    left: 53%;
+    width: 40px;
+  }
+  .section-banner__container-3 {
+    top: 35%;
+    left: 73%;
+    width: 40px;
+  }
+  .section-banner__container-4 {
+    top: 25.5%;
+    left: 50%;
+    width: 40px;
+  }
+  .section-banner__container-5 {
+    top: 49.5%;
+    left: 65%;
+    width: 40px;
+  }
+  .section-banner__cockpit-floor {
+    height: 20px;
+    top: 37%;
+    left: -17%;
+    width: 160px;
+  }
+  .section-banner__cockpit-roof {
+    height: 10px;
+    top: 35%;
+    left: -8.5%;
+    width: 90px;
+  }
+  .section-banner__mask-container {
+    top: 53%;
+    left: 20%;
+    font-size: 6.7rem; /* Large, responsive text size */
+  }
+}
+@media (min-width: 1025px) and (max-width: 1300px) {
+  .section-banner__boat-container {
+    top: 5%;
+    left: 1vw;
+    width: 50%;
+    height: 45%;
+  }
+  .section-banner__container-1 {
+    top: 18.5%;
+    left: 60%;
+    width: 85px;
+    background-color: #6ac6de;
+  }
+  .section-banner__container-2 {
+    top: 73.4%;
+    left: 63%;
+    width: 85px;
+    background-color: #6e6ade;
+  }
+  .section-banner__container-3 {
+    top: 55.5%;
+    left: 63%;
+    width: 85px;
+    background-color: #70de6a;
+  }
+  .section-banner__container-4 {
+    top: 25.5%;
+    left: 50%;
+    width: 85px;
+    background-color: #de766a;
+  }
+  .section-banner__container-5 {
+    top: 43%;
+    left: 49%;
+    width: 85px;
+    background-color: #98a2a4;
+  }
+  .section-banner__cockpit-floor,
+  .section-banner__cockpit-roof {
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 4px 0 0 6px rgba(0, 0, 0, 0.4);
+    transform: rotate(90deg);
+    background-color: #824a0a;
+  }
+  .section-banner__cockpit-floor {
+    height: 30px;
+    top: 35%;
+    left: -7.9%;
+    width: 160px;
+  }
+  .section-banner__cockpit-roof {
+    height: 20px;
+    top: 35%;
+    left: -6.5%;
+    width: 120px;
+  }
+  .section-banner__mask-container {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    /* Set text properties */
+    font-size: 8rem; /* Large, responsive text size */
+  }
+}
 .section-list__container {
   display: flex;
   flex-direction: column;
@@ -360,7 +1084,7 @@ body {
 .section-list__form-container {
   display: flex;
   position: relative;
-  margin-top: 20px;
+  margin-top: 10px;
   background: linear-gradient(90deg, #a9c4df, #e1f4e2);
   height: 8dvh;
   margin-bottom: 20px;
@@ -392,6 +1116,29 @@ body {
   padding: 10px;
   width: 150px;
   text-align: center;
+}
+
+.section-list__table-td-button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.section-list__table-td-button__delivered {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+@media (max-width: 490px) {
+  .section-list__table {
+    font-size: 10px;
+    width: min(88vw, 950px);
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

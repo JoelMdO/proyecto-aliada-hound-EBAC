@@ -1,4 +1,5 @@
-import "../styles/_header.scss";
+import "../styles/styles.css";
+import { header as headerText } from "../constants/header_text";
 
 const Header = () => {
   return (
@@ -7,29 +8,32 @@ const Header = () => {
         <div className="header-logo__container">
           <img
             src="./assets/logo-Hound_Express-bg-white.png"
-            alt="Hound Express logo"
+            alt={headerText.logoAlt}
             width="180"
             height="80"
             className="header-logo"
           />
           <div className="header-phone-1">
-            <strong>USA</strong>
-            <p>1-800-123-456</p>
+            <strong>{headerText.contacts.usaLabel}</strong>
+            <p>{headerText.contacts.usaNumber}</p>
           </div>
           <div className="header-phone-2">
-            <strong>MX</strong>
-            <p>00-5255-12-456</p>
+            <strong>{headerText.contacts.mxLabel}</strong>
+            <p>{headerText.contacts.mxNumber}</p>
           </div>
           <select
             className="header-select"
             name="language"
             id="language"
-            title="Language"
-            aria-label="Select language"
+            title={headerText.language.title}
+            aria-label={headerText.language.ariaLabel}
           >
-            <option value="">Language</option>
-            <option value="English">English</option>
-            <option value="Spanish">Spanish</option>
+            <option value="">{headerText.language.default}</option>
+            {headerText.language.options.map((lang) => (
+              <option key={lang} value={lang}>
+                {lang}
+              </option>
+            ))}
           </select>
         </div>
         <nav
@@ -37,14 +41,15 @@ const Header = () => {
           role="navigation"
           aria-label="Main navigation"
         >
-          <a href="" aria-current="page">
-            Inicio
-          </a>
-          <a href="#registro-de-guias">Registro de Guías</a>
-          <a href="#estado-general">Estado General</a>
-          <a href="#lista-de-guias">Lista de Guías</a>
-          <a href="#buscar-guias">Buscar Guías </a>
-          <a href="#historial-de-guias">Historial de Guías</a>
+          {headerText.navLinks.map((link, idx) => (
+            <a
+              key={link.href}
+              href={link.href}
+              {...(idx === 0 ? { "aria-current": "page" } : {})}
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
       </header>
     </>

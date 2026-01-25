@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Guia } from "../types/types";
+import type { Guia } from "../../types/types";
 
 interface GuideState {
   guides: Guia[];
@@ -22,7 +22,7 @@ export const guideSlice = createSlice({
       action: PayloadAction<{
         numeroDeGuia: string;
         estadoInicial: string;
-      }>
+      }>,
     ) => {
       //console.log("action at updateGuideStatus", action, "state", state);
 
@@ -37,7 +37,7 @@ export const guideSlice = createSlice({
       //console.log("state guides", state.guides.length);
 
       const guide = state.guides.find(
-        (g) => g.numeroDeGuia === action.payload.numeroDeGuia
+        (g) => g.numeroDeGuia === action.payload.numeroDeGuia,
       );
       //console.log("does the guide was found at updateGuideStatus", guide);
       //

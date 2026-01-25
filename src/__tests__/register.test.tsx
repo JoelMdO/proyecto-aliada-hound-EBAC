@@ -1,9 +1,9 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import FormSection from "../components/form_section";
+import FormSection from "../components/form/form_header";
 import "@testing-library/jest-dom";
 import { Provider } from "react-redux";
 import store from "../store/store";
-import ListSection from "../components/list_section";
+import ListSection from "../components/list/list_table";
 import { useState } from "react";
 
 describe("FormSection register", () => {
@@ -16,7 +16,7 @@ describe("FormSection register", () => {
     render(
       <Provider store={store}>
         <FormSection setListSectionToUpdate={setListSectionToUpdate} />
-      </Provider>
+      </Provider>,
     );
 
     // Fill the form
@@ -54,7 +54,7 @@ describe("FormSection register", () => {
             destinatario: "Jose Lopez",
             fechaCreacion: "7-Jan-2026",
           }),
-        ])
+        ]),
       );
     });
   });
@@ -77,7 +77,7 @@ describe("FormSection register", () => {
     render(
       <Provider store={store}>
         <TestApp />
-      </Provider>
+      </Provider>,
     );
 
     // Fill and submit the form

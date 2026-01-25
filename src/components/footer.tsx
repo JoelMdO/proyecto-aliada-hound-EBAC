@@ -1,10 +1,12 @@
 import "../styles/_footer.scss";
+import { footer } from "../constants/footer_text";
+
 const Footer = () => {
   return (
     <>
       <footer role="contentinfo" aria-label="Site footer">
-        <p>Hound Express &copy; 2025</p>
-        <p>Todos los derechos reservados</p>
+        <p>{footer.copyright}</p>
+        <p>{footer.reserved}</p>
       </footer>
     </>
   );
