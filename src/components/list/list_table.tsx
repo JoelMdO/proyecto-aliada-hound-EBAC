@@ -9,6 +9,8 @@ import type { AppDispatch, RootState } from "../../redux/store/store";
 import { list as listText } from "../../constants/list_text";
 import { fetchGuides } from "../../redux/thunks/fetch_guideThunk";
 import type { Guia } from "../../types/types";
+import { updateGuide } from "../../redux/thunks/update_guideThunk";
+//import { Gift } from "lucide-react";
 // const ListTable = ({ updateListSection }: { updateListSection: boolean }) => {
 const ListTable = () => {
   ///const [guias, setGuias] = useState<Guia[]>([]);
@@ -84,12 +86,15 @@ const ListTable = () => {
                 <button
                   className={`${
                     // deliveredStatus[guia.trackingNumber]
-                    //   ? "section-list__table-td-button__delivered"
-                    //:
-                    "section-list__table-td-button"
+                    guia.initialStatus === "Entregado"
+                      ? "section-list__table-td-button__delivered"
+                      : "section-list__table-td-button"
                   }`}
                   type="button"
                   // onClick={() => handleDeliveryClick(guia.trackingNumber)}
+                  onClick={() => {
+                    dispatch(updateGuide(guia.trackingNumber));
+                  }}
                   aria-label={`Mark guide ${guia.trackingNumber} as delivered`}
                 >
                   {guia.initialStatus}

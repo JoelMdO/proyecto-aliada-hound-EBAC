@@ -1132,6 +1132,7 @@ body {
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 4px;
+  font-size: 14px;
 }
 
 @media (max-width: 490px) {
@@ -1140,6 +1141,9 @@ body {
     width: min(88vw, 950px);
   }
   .section-list__table-td-button {
+    font-size: 10px;
+  }
+  .section-list__table-td-button__delivered {
     font-size: 10px;
   }
 }
