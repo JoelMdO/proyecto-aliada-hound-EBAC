@@ -1,55 +1,21 @@
 import { useEffect } from "react";
 import "../../styles/_section-list.scss";
-//import type { Guia } from "../../types/types";
-//import { fetchGuias } from "../../utils/script";
 import { useDispatch, useSelector } from "react-redux";
-//import type { AppDispatch } from "../../redux/store/store";
 import type { AppDispatch, RootState } from "../../redux/store/store";
-//import { markGuideAsReceivedAndSave } from "../../redux/thunks/register_guideThunk";
 import { list as listText } from "../../constants/list_text";
 import { fetchGuides } from "../../redux/thunks/fetch_guideThunk";
 import type { Guia } from "../../types/types";
 import { updateGuide } from "../../redux/thunks/update_guideThunk";
-//import { Gift } from "lucide-react";
-// const ListTable = ({ updateListSection }: { updateListSection: boolean }) => {
 const ListTable = () => {
-  ///const [guias, setGuias] = useState<Guia[]>([]);
   const guias = useSelector((state: RootState) => state.guides.guides);
   console.log("guias", guias);
 
-  // const [deliveredStatus, setDeliveredStatus] = useState<
-  //   Record<string, boolean>
-  // >({});
   const dispatch = useDispatch<AppDispatch>();
-  //console.log("guidesfromstore", guidesFromStore);
 
   useEffect(() => {
     // Fetch guides from DB
     dispatch(fetchGuides());
   }, [dispatch]);
-
-  //const handleDeliveryClick = (numeroDeGuia: string) => {
-  //console.log("handlerClicked", numeroDeGuia);
-
-  //console.log("state before dispatch at handleDelivery", guidesFromStore);
-
-  //dispatch(markGuideAsReceivedAndSave(numeroDeGuia));
-  //console.log("store after dispatch", guidesFromStore);
-
-  // Update the local `guias` state to trigger a re-render
-  // setGuias((prevGuias) =>
-  //   prevGuias.map((guia) =>
-  //     guia.numeroDeGuia === numeroDeGuia
-  //       ? { ...guia, estadoInicial: "Entregado" }
-  //       : guia,
-  //   ),
-  //);
-
-  // setDeliveredStatus((prevStatus) => ({
-  //   ...prevStatus,
-  //   [numeroDeGuia]: true,
-  // }));
-  //};
 
   return (
     <>
@@ -85,13 +51,11 @@ const ListTable = () => {
               <td>
                 <button
                   className={`${
-                    // deliveredStatus[guia.trackingNumber]
                     guia.initialStatus === "Entregado"
                       ? "section-list__table-td-button__delivered"
                       : "section-list__table-td-button"
                   }`}
                   type="button"
-                  // onClick={() => handleDeliveryClick(guia.trackingNumber)}
                   onClick={() => {
                     dispatch(updateGuide(guia.trackingNumber));
                   }}

@@ -7,11 +7,6 @@ import { useState } from "react";
 import { registerGuide } from "../../redux/thunks/register_guideThunk";
 import { form } from "../../constants/form_text";
 
-// const Form = ({
-//   setListSectionToUpdate,
-// }: {
-//   setListSectionToUpdate: React.Dispatch<React.SetStateAction<boolean>>;
-// }) => {
 const Form = () => {
   const { register, handleSubmit, reset } = useForm<Guia>();
   const [buttonClicked, setButtonClicked] = useState<boolean>(false);
@@ -21,24 +16,18 @@ const Form = () => {
   // Submit the form, will call Redux and update the localstorage
   ///--------------------------------------------------------
   const onSubmit: SubmitHandler<Guia> = (data) => {
-    //console.log("doing on submit", data);
-
     // Dispatch the action to register the guide
     dispatch(
-      registerGuide(
-        {
-          trackingNumber: data.trackingNumber,
-          origin: data.origin,
-          destination: data.destination,
-          recipient: data.recipient,
-          creationDate: data.creationDate,
-          initialStatus: data.initialStatus,
-        },
-        // "register",
-      ),
+      registerGuide({
+        trackingNumber: data.trackingNumber,
+        origin: data.origin,
+        destination: data.destination,
+        recipient: data.recipient,
+        creationDate: data.creationDate,
+        initialStatus: data.initialStatus,
+      }),
     );
 
-    // setListSectionToUpdate(true);
     setTimeout(() => {
       reset();
       setButtonClicked(false);
