@@ -1,7 +1,8 @@
 import "../../styles/_section-list.scss";
 import ListHeader from "./list_header";
 import ListTable from "./list_table";
-const ListSection = ({ updateListSection }: { updateListSection: boolean }) => {
+// const ListSection = ({ updateListSection }: { updateListSection: boolean }) => {
+const ListSection = () => {
   //
   return (
     <>
@@ -10,10 +11,9 @@ const ListSection = ({ updateListSection }: { updateListSection: boolean }) => {
         id="lista-de-guias"
         aria-labelledby="lista-de-guias-title"
       >
-        <div className="section-list__container">
-          <ListHeader />
-          <ListTable updateListSection={updateListSection} />
-        </div>
+        <ListHeader />
+        {/* <ListTable updateListSection={updateListSection} /> */}
+        <ListTable />
       </section>
     </>
   );

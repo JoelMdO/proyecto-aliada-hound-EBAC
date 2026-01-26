@@ -40,6 +40,7 @@
   padding: 0;
   cursor: pointer;
   margin: 0;
+  font-size: 14px;
 }
 
 .section-list__table-td-button__delivered {
@@ -55,5 +56,9 @@
   .section-list__table {
     font-size: 10px;
     width: min(88vw, 950px);
+  }
+
+  .section-list__table-td-button {
+    font-size: 10px;
   }
 }

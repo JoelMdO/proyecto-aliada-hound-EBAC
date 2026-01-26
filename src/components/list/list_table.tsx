@@ -1,52 +1,53 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "../../styles/_section-list.scss";
-import type { Guia } from "../../types/types";
-import { fetchGuias } from "../../utils/script";
+//import type { Guia } from "../../types/types";
+//import { fetchGuias } from "../../utils/script";
 import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch } from "../../redux/store/store";
-import type { RootState } from "../../redux/store/store";
-import { markGuideAsReceivedAndSave } from "../../redux/thunks/guideThunk";
+//import type { AppDispatch } from "../../redux/store/store";
+import type { AppDispatch, RootState } from "../../redux/store/store";
+//import { markGuideAsReceivedAndSave } from "../../redux/thunks/register_guideThunk";
 import { list as listText } from "../../constants/list_text";
-const ListTable = ({ updateListSection }: { updateListSection: boolean }) => {
-  const [guias, setGuias] = useState<Guia[]>([]);
-  const guidesFromStore = useSelector(
-    (state: RootState) => state.guides.guides,
-  );
-  const [deliveredStatus, setDeliveredStatus] = useState<
-    Record<string, boolean>
-  >({});
+import { fetchGuides } from "../../redux/thunks/fetch_guideThunk";
+import type { Guia } from "../../types/types";
+// const ListTable = ({ updateListSection }: { updateListSection: boolean }) => {
+const ListTable = () => {
+  ///const [guias, setGuias] = useState<Guia[]>([]);
+  const guias = useSelector((state: RootState) => state.guides.guides);
+  console.log("guias", guias);
+
+  // const [deliveredStatus, setDeliveredStatus] = useState<
+  //   Record<string, boolean>
+  // >({});
   const dispatch = useDispatch<AppDispatch>();
   //console.log("guidesfromstore", guidesFromStore);
 
   useEffect(() => {
-    // Fetch guides and update local state when the store changes
-    fetchGuias({ guidesFromStore, setGuias, dispatch });
-    // Read the guias from store after populating it
-    //console.log("guidesfromstore after fetch", guidesFromStore);
-  }, [updateListSection, guidesFromStore, dispatch]);
+    // Fetch guides from DB
+    dispatch(fetchGuides());
+  }, [dispatch]);
 
-  const handleDeliveryClick = (numeroDeGuia: string) => {
-    //console.log("handlerClicked", numeroDeGuia);
+  //const handleDeliveryClick = (numeroDeGuia: string) => {
+  //console.log("handlerClicked", numeroDeGuia);
 
-    //console.log("state before dispatch at handleDelivery", guidesFromStore);
+  //console.log("state before dispatch at handleDelivery", guidesFromStore);
 
-    dispatch(markGuideAsReceivedAndSave(numeroDeGuia));
-    //console.log("store after dispatch", guidesFromStore);
+  //dispatch(markGuideAsReceivedAndSave(numeroDeGuia));
+  //console.log("store after dispatch", guidesFromStore);
 
-    // Update the local `guias` state to trigger a re-render
-    setGuias((prevGuias) =>
-      prevGuias.map((guia) =>
-        guia.numeroDeGuia === numeroDeGuia
-          ? { ...guia, estadoInicial: "Entregado" }
-          : guia,
-      ),
-    );
+  // Update the local `guias` state to trigger a re-render
+  // setGuias((prevGuias) =>
+  //   prevGuias.map((guia) =>
+  //     guia.numeroDeGuia === numeroDeGuia
+  //       ? { ...guia, estadoInicial: "Entregado" }
+  //       : guia,
+  //   ),
+  //);
 
-    setDeliveredStatus((prevStatus) => ({
-      ...prevStatus,
-      [numeroDeGuia]: true,
-    }));
-  };
+  // setDeliveredStatus((prevStatus) => ({
+  //   ...prevStatus,
+  //   [numeroDeGuia]: true,
+  // }));
+  //};
 
   return (
     <>
@@ -55,7 +56,7 @@ const ListTable = ({ updateListSection }: { updateListSection: boolean }) => {
         role="table"
         aria-label={listText.tableAria}
       >
-        <caption className="visually-hidden">Lista de Guías</caption>
+        <caption className="visually-hidden">{listText.title}</caption>
         <thead>
           <tr className="section-list__table-header">
             {listText.headers.map((h) => (
@@ -66,24 +67,32 @@ const ListTable = ({ updateListSection }: { updateListSection: boolean }) => {
           </tr>
         </thead>
         <tbody>
+          {guias.length === 0 && (
+            <tr>
+              <td colSpan={5} className="section-list__table-td--no-data">
+                {listText.noData}
+              </td>
+            </tr>
+          )}
           {guias.map((guia: Guia) => (
-            <tr key={guia.numeroDeGuia}>
-              <td>{guia.numeroDeGuia}</td>
-              <td>{guia.origen}</td>
-              <td>{guia.destino}</td>
-              <td>{guia.destinatario}</td>
+            <tr key={guia.trackingNumber}>
+              <td>{guia.trackingNumber}</td>
+              <td>{guia.origin}</td>
+              <td>{guia.destination}</td>
+              <td>{guia.recipient}</td>
               <td>
                 <button
                   className={`${
-                    deliveredStatus[guia.numeroDeGuia]
-                      ? "section-list__table-td-button__delivered"
-                      : "section-list__table-td-button"
+                    // deliveredStatus[guia.trackingNumber]
+                    //   ? "section-list__table-td-button__delivered"
+                    //:
+                    "section-list__table-td-button"
                   }`}
                   type="button"
-                  onClick={() => handleDeliveryClick(guia.numeroDeGuia)}
-                  aria-label={`Mark guide ${guia.numeroDeGuia} as delivered`}
+                  // onClick={() => handleDeliveryClick(guia.trackingNumber)}
+                  aria-label={`Mark guide ${guia.trackingNumber} as delivered`}
                 >
-                  {guia.estadoInicial}
+                  {guia.initialStatus}
                 </button>
               </td>
             </tr>

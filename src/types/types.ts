@@ -1,10 +1,11 @@
 export interface Guia {
-  numeroDeGuia: string;
-  origen: string;
-  destino: string;
-  destinatario: string;
-  fechaCreacion: Date;
-  estadoInicial: string;
+  trackingNumber: string;
+  origin: string;
+  destination: string;
+  recipient: string;
+  creationDate: Date;
+  initialStatus: string;
+  status?: string;
 }
 
 export type JestReducer = { type: string };
