@@ -16,14 +16,6 @@ const PanelBoat = () => {
           <div className="section-panel__cockpit-roof"></div>
         </div>
       </div>
-      <div className="section-panel__chart-general">
-        <div className="section-panel__bar-1">
-          <strong>{panel.bar1}</strong>
-        </div>
-        <div className="section-panel__bar-2">
-          <strong>{panel.bar2}</strong>
-        </div>
-      </div>
     </>
   );
 };

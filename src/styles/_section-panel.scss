@@ -118,7 +118,8 @@
 }
 
 .section-panel__bar-1,
-.section-panel__bar-2 {
+.section-panel__bar-2,
+.section-panel__bar-3 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,6 +137,12 @@
   width: 55%;
   color: $dark-blue-color;
   background-color: $section-banner__container-3-color;
+}
+
+.section-panel__bar-3 {
+  width: 65%;
+  color: $dark-blue-color;
+  background-color: $section-banner__container-4-color;
 }
 
 @media (max-width: 490px) {

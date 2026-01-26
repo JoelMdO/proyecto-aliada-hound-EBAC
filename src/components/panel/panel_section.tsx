@@ -1,6 +1,7 @@
 import "../../styles/_section-panel.scss";
 import PanelHeader from "./panel_header";
 import PanelBoat from "./panel_boat";
+import PanelBars from "./panel_bars";
 
 const PanelSection = () => {
   return (
@@ -13,6 +14,7 @@ const PanelSection = () => {
       >
         <PanelHeader />
         <PanelBoat />
+        <PanelBars />
       </section>
     </>
   );
