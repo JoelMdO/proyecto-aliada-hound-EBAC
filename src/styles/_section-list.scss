@@ -1,13 +1,15 @@
 @use "variables" as *;
 @use "mixin";
 
-.section-list__container {
-  @include mixin.flex-column();
-  justify-content: center;
-  width: 100%;
+.section-list {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100vw;
   height: 50dvh;
 }
-.section-list__form-container {
+
+.section-list__container {
   @include mixin.section-container();
 }
 
@@ -16,7 +18,6 @@
 }
 
 .section-list__table {
-  margin: 20px auto;
   width: min(90vw, 1100px);
   overflow-x: auto;
   background-color: $table-background-color;
@@ -56,9 +57,3 @@
     width: min(88vw, 950px);
   }
 }
-// @media (min-width: 500px) and (max-width: 768px) {
-// }
-// @media (min-width: 769px) and (max-width: 1024px) {
-// }
-// @media (min-width: 1025px) and (max-width: 1300px) {
-// }

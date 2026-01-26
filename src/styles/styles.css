@@ -1073,15 +1073,15 @@ body {
     font-size: 8rem; /* Large, responsive text size */
   }
 }
-.section-list__container {
+.section-list {
   display: flex;
+  position: relative;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
+  width: 100vw;
   height: 50dvh;
 }
 
-.section-list__form-container {
+.section-list__container {
   display: flex;
   position: relative;
   margin-top: 10px;
@@ -1099,7 +1099,6 @@ body {
 }
 
 .section-list__table {
-  margin: 20px auto;
   width: min(90vw, 1100px);
   overflow-x: auto;
   background-color: #f4f4f4;
