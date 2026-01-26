@@ -1,11 +1,12 @@
 import FormHeader from "./form_header";
 import Form from "./form";
 
-const FormSection = ({
-  setListSectionToUpdate,
-}: {
-  setListSectionToUpdate: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+// const FormSection = ({
+//   setListSectionToUpdate,
+// }: {
+//   setListSectionToUpdate: React.Dispatch<React.SetStateAction<boolean>>;
+// }) => {
+const FormSection = () => {
   return (
     <>
       <section
@@ -14,7 +15,8 @@ const FormSection = ({
         aria-labelledby="registro-de-guias-title"
       >
         <FormHeader />
-        <Form setListSectionToUpdate={setListSectionToUpdate} />
+        {/* <Form setListSectionToUpdate={setListSectionToUpdate} /> */}
+        <Form />
       </section>
     </>
   );

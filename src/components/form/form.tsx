@@ -4,14 +4,15 @@ import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import type { Guia } from "../../types/types";
 import { useState } from "react";
-import { registerGuideAndSave } from "../../redux/thunks/guideThunk";
+import { registerGuide } from "../../redux/thunks/register_guideThunk";
 import { form } from "../../constants/form_text";
 
-const Form = ({
-  setListSectionToUpdate,
-}: {
-  setListSectionToUpdate: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+// const Form = ({
+//   setListSectionToUpdate,
+// }: {
+//   setListSectionToUpdate: React.Dispatch<React.SetStateAction<boolean>>;
+// }) => {
+const Form = () => {
   const { register, handleSubmit, reset } = useForm<Guia>();
   const [buttonClicked, setButtonClicked] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
@@ -24,20 +25,20 @@ const Form = ({
 
     // Dispatch the action to register the guide
     dispatch(
-      registerGuideAndSave(
+      registerGuide(
         {
-          numeroDeGuia: data.numeroDeGuia,
-          destinatario: data.destinatario,
-          origen: data.origen,
-          destino: data.destino,
-          fechaCreacion: data.fechaCreacion,
-          estadoInicial: data.estadoInicial,
+          trackingNumber: data.trackingNumber,
+          origin: data.origin,
+          destination: data.destination,
+          recipient: data.recipient,
+          creationDate: data.creationDate,
+          initialStatus: data.initialStatus,
         },
-        "register",
+        // "register",
       ),
     );
 
-    setListSectionToUpdate(true);
+    // setListSectionToUpdate(true);
     setTimeout(() => {
       reset();
       setButtonClicked(false);
@@ -57,28 +58,28 @@ const Form = ({
           type="text"
           placeholder={form.placeholders.numeroDeGuia}
           aria-label={form.placeholders.numeroDeGuia}
-          {...register("numeroDeGuia", { required: true })}
+          {...register("trackingNumber", { required: true })}
         />
         <input
           id="origen"
           type="text"
           placeholder={form.placeholders.origen}
           aria-label={form.placeholders.origen}
-          {...register("origen", { required: true })}
+          {...register("origin", { required: true })}
         />
         <input
           id="destino"
           type="text"
           placeholder={form.placeholders.destino}
           aria-label={form.placeholders.destino}
-          {...register("destino", { required: true })}
+          {...register("destination", { required: true })}
         />
         <input
           id="destinatario"
           type="text"
           placeholder={form.placeholders.destinatario}
           aria-label={form.placeholders.destinatario}
-          {...register("destinatario", { required: true })}
+          {...register("recipient", { required: true })}
         />
         <input
           id="fechaCreacion"
@@ -86,14 +87,14 @@ const Form = ({
           placeholder={form.placeholders.fechaCreacion}
           aria-label={form.placeholders.fechaCreacion}
           onFocus={(e) => (e.target.type = "date")}
-          {...register("fechaCreacion", { required: true })}
+          {...register("creationDate", { required: true })}
         />
         <select
           className="section-form__select-form"
           id="estado"
           title={form.select.title}
           aria-label={form.select.ariaLabel}
-          {...register("estadoInicial", { required: true })}
+          {...register("initialStatus", { required: true })}
         >
           <option value="">{form.select.default}</option>
           {form.select.options.map((opt) => (

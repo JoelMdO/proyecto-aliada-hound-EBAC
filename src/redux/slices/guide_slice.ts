@@ -1,12 +1,19 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Guia } from "../../types/types";
+import { registerGuide } from "../thunks/register_guideThunk";
+import { fetchGuides } from "../thunks/fetch_guideThunk";
+import { updateGuide } from "../thunks/update_guideThunk";
 
 interface GuideState {
   guides: Guia[];
+  status: "loading" | "succeeded" | "failed";
+  error?: string;
 }
 
 const initialState: GuideState = {
   guides: [],
+  status: "loading",
+  error: undefined,
 };
 
 // Create a slice for guides
@@ -14,40 +21,60 @@ export const guideSlice = createSlice({
   name: "guides",
   initialState,
   reducers: {
-    registerGuide: (state, action: PayloadAction<Guia>) => {
-      state.guides.push({ ...action.payload });
+    loadGuides: (state, action: PayloadAction<Guia[]>) => {
+      state.guides = action.payload;
     },
     updateGuideStatus: (
       state,
       action: PayloadAction<{
-        numeroDeGuia: string;
-        estadoInicial: string;
+        trackingNumber: string;
+        initialStatus: string;
       }>,
     ) => {
-      //console.log("action at updateGuideStatus", action, "state", state);
-
-      // console.log(
-      //   "action at updateGuideStatus more",
-      //   action.payload.estadoInicial,
-      //   action.payload.numeroDeGuia,
-      //   "type of estadoInicial",
-      //   typeof action.payload.estadoInicial
-      // );
-
-      //console.log("state guides", state.guides.length);
-
       const guide = state.guides.find(
-        (g) => g.numeroDeGuia === action.payload.numeroDeGuia,
+        (g) => g.trackingNumber === action.payload.trackingNumber,
       );
-      //console.log("does the guide was found at updateGuideStatus", guide);
       //
       if (guide) {
-        //console.log("yes it was found and updated", guide);
-        guide.estadoInicial = action.payload.estadoInicial;
+        //
+        guide.initialStatus = action.payload.initialStatus;
       }
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(registerGuide.fulfilled, (state) => {
+        state.status = "succeeded";
+      })
+      .addCase(registerGuide.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(registerGuide.rejected, (state) => {
+        state.status = "failed";
+        state.error = "Failed to register guide";
+      })
+      .addCase(fetchGuides.fulfilled, (state) => {
+        state.status = "succeeded";
+      })
+      .addCase(fetchGuides.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchGuides.rejected, (state) => {
+        state.status = "failed";
+        state.error = "Failed to fetch guides";
+      })
+      .addCase(updateGuide.fulfilled, (state) => {
+        state.status = "succeeded";
+      })
+      .addCase(updateGuide.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateGuide.rejected, (state) => {
+        state.status = "failed";
+        state.error = "Failed to update guide status";
+      });
   },
 });
 
 // Export actions
-export const { registerGuide, updateGuideStatus } = guideSlice.actions;
+export const { loadGuides, updateGuideStatus } = guideSlice.actions;
