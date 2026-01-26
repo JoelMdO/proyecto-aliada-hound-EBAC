@@ -5,11 +5,13 @@
   display: flex;
   position: relative;
   flex-direction: column;
+  align-items: center;
   width: 100vw;
   height: 50dvh;
 }
 
 .section-list__container {
+  width: 100%;
   @include mixin.section-container();
 }
 
